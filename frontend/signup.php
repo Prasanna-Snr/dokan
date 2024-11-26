@@ -42,7 +42,7 @@
         </div>
         <div class="image-box">
             <div class="login-image-container">
-                <img src="images/login.png" alt="">
+                <img src="/dokan/images/login.png" alt="">
             </div>
         </div>
     </div>
