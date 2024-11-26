@@ -27,7 +27,8 @@
         </div>
         <div class="image-box">
             <div class="login-image-container">
-                <img src="images/login.png" alt="">
+                <!-- <img src="images/login.png" alt="login logo"> -->
+                <img src="images/bigimg.jpg" alt="">
             </div>
         </div>
     </div>
