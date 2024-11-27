@@ -2,7 +2,7 @@
 <?php include "admin_navbar.php";?>
     <div class="admin-product-form-container">
         <h1 class="admin-product-form-header">Add New Product</h1>
-        <form class="admin-product-form" action="../controller/add_product_controller.php" method="POST" enctype="multipart/form-data">
+        <form class="admin-product-form" action="controller/add_product_controller.php" method="POST" enctype="multipart/form-data">
             <div class="admin-product-form-group">
                 <label class="admin-product-form-label">Product Name:</label>
                 <input type="text" name="name" class="admin-product-form-input" required>
