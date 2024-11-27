@@ -3,9 +3,11 @@
 <div class="body-container">
         <div class="categories-section">
             <div class="admin-list">
+            <div id="admin-d">
             <a href="admin_dashboard.php">
             <p id="admin-heading">Dashboard</p>
             </a>
+            </div>
                 <hr class="custom-line">
                 <ul>
                     <li><a href="#">Customer</a></li>
