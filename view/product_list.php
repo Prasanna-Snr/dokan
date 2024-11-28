@@ -61,7 +61,7 @@ include "admin_navbar.php";?>
                     </td>
                     <td><?php echo $row['price']; ?></td>
                     <td>
-                        <a href="" id="product-edit">Edit</a>
+                        <a href="/dokan/view/edit_product.php?id=<?php echo $row['product_id'];?>" id="product-edit">Edit</a>
                         <a href="/dokan/controller/delete_product_controller.php?id=<?php echo $row['product_id'];?>" id="product-delete">Delete</a>
                     </td>
                 </tr>
