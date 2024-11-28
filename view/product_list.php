@@ -1,4 +1,10 @@
-<?php include "admin_navbar.php";?>
+<?php
+session_start();
+include "../database/dbcon.php";
+$sql = "SELECT product_id,name,image_path,price FROM tbl_product";
+$res = mysqli_query($conn, $sql);
+
+include "admin_navbar.php";?>
 <!-- items list container -->
 <div class="body-container">
         <div class="categories-section">
@@ -31,42 +37,31 @@
             <table>
                 <thead>
                     <tr>
-                        <th>ID</th>
+                        <th>Id</th>
                         <th>Product Name</th>
                         <th>Image</th>
+                        <th>Price</th>
                         <th>Action</th>
                     </tr>
                 </thead>
 
                 <!-- body -->
+               
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Phone</td>
-                        <td style="text-align: center;">
-                            <div class="tbl-img-container">
-                                <img src="/dokan/images/img3.png" alt="">
-                            </div>
-                        </td>
-                        <td>
-                            <a href="" id="product-edit">Edit</a>
-                            <a href="" id="product-delete">Delete</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>Phone</td>
-                        <td id="tbl-img">
-                            <div class="tbl-img-container">
-                                <img src="/dokan/images/img5.png" alt="">
-                            </div>
-                        </td>
-                        <td>
-                            <a href="" id="product-edit">Edit</a>
-                            <a href="" id="product-delete">Delete</a>
-                        </td>
-                    </tr>
-                </tbody>
+                <?php while($row = mysqli_fetch_assoc($res)): ?>
+                    <pre><?php //print_r($row); ?></pre>
+                <tr>
+                    <td><?php echo $row['product_id'];?></td>
+                    <td><?php echo $row['name']; ?></td>
+                    <td><img src="<?php echo $row['image_path']; ?>" alt="<?php echo $row['name']; ?>" style="width: 100px; height: auto;"></td>
+                    <td><?php echo $row['price'];?></td>
+                    <td>
+                    <a href="" id="product-edit">Edit</a>
+                    <a href="" id="product-delete">Delete</a>
+                    </td>
+                </tr>
+                <?php endwhile; ?>
+            </tbody>
             </table>
         </div>
 

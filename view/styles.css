@@ -211,6 +211,7 @@ padding-bottom: 25px;
 
 .item-container{
   display: flex;
+  justify-content: space-between;
 
 }
 .small-item{
@@ -548,6 +549,12 @@ cursor: pointer;
   display: flex;
   flex-direction: column;
   gap: 50px;
+}
+
+.items{
+  display: flex;
+  flex-direction: column;
+  width: 200px;
 }
 
 #heading-category{
@@ -991,9 +998,11 @@ color: black;
 .admin-list{
 background-color: #f1f1f1;
 height:350px;
+width: 220px;
 padding-left: 20px;
 padding-right: 20px;
 padding-top: 20px;
+position: fixed;
 }
 
 .admin-list ul{
@@ -1206,23 +1215,4 @@ margin-left: 30px;
 
 .admin-product-form-previous:hover {
   background-color: #0056b3;
-}
-
-/* -----------msg css------------- */
-/* Example CSS for alert messages */
-.alert {
-  background-color: #f44336; 
-  color: white;
-  padding: 15px;
-  margin: 10px 0;
-  border-radius: 5px;
-  text-align: center;
-}
-
-.alert.success {
-  background-color: #4CAF50; 
-}
-
-.alert.info {
-  background-color: #2196F3; 
 }

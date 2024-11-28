@@ -1,6 +1,6 @@
 <?php include "customer_navbar.php";?>
-    <!-- body container -->
-    <div class="body-container">
+     <!-- body container -->
+     <div class="body-container">
         <div class="categories-section">
             <div class="categories-list">
                 <p id="heading-category">CATEGORIES</p>
@@ -20,7 +20,7 @@
             <div class="item-container">
                 <div class="items">
                     <a href="product_detail.html" class="img-container">
-                        <img src="images/img2.png" alt="">
+                        <img src="/dokan/images/bigimg.jpg" alt="">
                     </a>
                     <p id="title">Lorem ipsum dolor sit amet.</p>
                     <div class="price-container">
@@ -31,7 +31,7 @@
 
                 <div class="items">
                     <a href="product_detail.html" class="img-container">
-                        <img src="images/img2.png" alt="">
+                        <img src="/dokan/images/profile_user.jpg" alt="">
                     </a>
                     <p id="title">Lorem ipsum dolor sit amet.</p>
                     <div class="price-container">
@@ -56,7 +56,7 @@
             <div class="item-container">
                 <div class="items">
                     <a href="product_detail.html" class="img-container">
-                        <img src="images/img2.png" alt="">
+                        <img src="/dokan/images/img2.png" alt="">
                     </a>
                     <p id="title">Lorem ipsum dolor sit amet.</p>
                     <div class="price-container">
