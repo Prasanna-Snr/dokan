@@ -57,7 +57,7 @@
 
 
         <marquee behavior="scroll" direction="left" >
-            ✨ Welcome to Dokan Admin Dashboard! Manage your drone and gadget store effortlessly. Empower your e-commerce business with ease! 🚀
+            Welcome to Dokan Admin Dashboard! Manage your drone and gadget store effortlessly. Empower your e-commerce business with ease!
             </marquee>
             
 
