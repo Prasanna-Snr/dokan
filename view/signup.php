@@ -10,7 +10,7 @@
     <p id="login-txt">Sign Up</p>
     <div class="login-container">
         <div class="login-box">
-            <form action="">
+            <form action="../controller/insert_admin_controller.php" method="POST">
                 <div class="from-field">
                     <label for="fullname">Fullname:</label>
                     <input type="text" name="fullname" id="fullname" class="contact-input-field" placeholder="Fullname">
@@ -38,7 +38,7 @@
 
                 <button id="btn-login" name="submit">Login</button>
             </form>
-            <p>Already have an account? <a href="" id="sign-up-txt">Login</a></p>
+            <p>Already have an account? <a href="login.php" id="sign-up-txt">Login</a></p>
         </div>
         <div class="image-box">
             <div class="login-image-container">
