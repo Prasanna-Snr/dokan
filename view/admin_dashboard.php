@@ -1,4 +1,18 @@
- 
+<?php
+
+
+include "../database/dbcon.php";
+
+
+$query = "SELECT COUNT(*) AS total FROM tbl_product"; //tatal = temoprary column or alias
+$result = mysqli_query($conn, $query);
+
+if ($result) {
+    $row = mysqli_fetch_assoc($result);
+    $total = $row['total'];
+}
+?>
+
 <?php include "admin_navbar.php";?>
 <!-- items list container -->
 <div class="body-container">
@@ -33,15 +47,15 @@
 
             <a href="product_list.php" class="admin-items">
                 <div class="min-container">
-                    <span id="no">360</span>
-                    <p id="min-text">Product Management</p>
+                <span id="no"><?php echo $total; ?></span>
+                    <p id="min-text">Total Product</p>
                 </div>
             </a>
 
             <a href="" class="admin-items">
                 <div class="min-container">
                     <span id="no">70</span>
-                    <p id="min-text">Categories Management</p>
+                    <p id="min-text"> Total Categories</p>
                 </div>
             </a>
 

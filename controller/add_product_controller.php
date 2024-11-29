@@ -8,7 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $name = $_POST['name'];
     $category = $_POST['categories'];
     $description = $_POST['description'];
-    $price = $_POST['price'];
+    $price = $_POST['pric'];
     $offer = $_POST['offer'] ?? 0;
     $discount = $_POST['discount'] ?? 0;
 
@@ -61,7 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // Database insertion
-    include_once "../database/dbcon.php"; // Include the database connection
+    include_once "../database/dbcon.php"; 
 
     // Prepare the SQL query
     $stmt = $conn->prepare("INSERT INTO tbl_product (name, category, image_path, description, price, offer, discount) 
