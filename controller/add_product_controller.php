@@ -8,7 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $name = $_POST['name'];
     $category = $_POST['categories'];
     $description = $_POST['description'];
-    $price = $_POST['pric'];
+    $price = $_POST['price-input'];
     $offer = $_POST['offer'] ?? 0;
     $discount = $_POST['discount'] ?? 0;
 

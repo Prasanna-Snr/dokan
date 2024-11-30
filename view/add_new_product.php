@@ -28,7 +28,7 @@
     </div>
     <div class="admin-product-form-group">
         <label class="admin-product-form-label">Price:</label>
-        <input type="number" name="pric" id="pric" class="admin-product-form-input" min="0" required>
+        <input type="number" name="price-input" id="price-input" class="admin-product-form-input" min="0" required>
     </div>
     <div class="admin-product-form-group">
         <label class="admin-product-form-label">Offer:</label>
