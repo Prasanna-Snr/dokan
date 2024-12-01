@@ -34,7 +34,7 @@ if($res){
             </div>
             <hr class="custom-line">
             <ul>
-                <li><a href="#">Customer</a></li>
+                <li><a href="customer_list.php">Customer</a></li>
                 <li><a href="product_list.php">Product</a></li>
                 <li><a href="categories_list.php">Categories</a></li>
                 <li><a href="#">Order</a></li>

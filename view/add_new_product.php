@@ -41,7 +41,7 @@
     <div class="admin-product-form-group admin-product-form-buttons">
         <button type="button" class="admin-product-form-button admin-product-form-previous" onclick="window.history.back()">Previous</button>
         <button type="reset" class="admin-product-form-button admin-product-form-clear">Clear</button>
-        <button type="submit" class="admin-product-form-button admin-product-form-submit">Add New Product</button>
+        <button type="submit" class="admin-product-form-button admin-product-form-submit" name="submit">Add New Product</button>
     </div>
 </form>
 

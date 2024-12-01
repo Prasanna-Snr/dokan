@@ -1,4 +1,5 @@
 <?php
+include_once "../database/dbcon.php";
 session_start();
 
 if (isset($_POST['submit'])) {
@@ -14,10 +15,7 @@ if (isset($_POST['submit'])) {
         $hash_psw = sha1($password);
         $sql = "INSERT INTO tbl_admin (fullname, username, email, password) VALUES ('$fullname', '$username', '$email', '$hash_psw')";
 
-        include_once "../database/dbcon.php";
-
         $result = mysqli_query($conn, $sql);
-
         if ($result) {
             $_SESSION['msg'] = "Admin registered successfully!";
         } else {
@@ -25,7 +23,5 @@ if (isset($_POST['submit'])) {
         }
     }
 }
-
-
 header("location: ../view/login.php");
 ?>

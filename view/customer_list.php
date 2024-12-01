@@ -1,7 +1,7 @@
 <?php
 session_start();
 include "../database/dbcon.php";
-$sql = "SELECT product_id,name,image_path,price FROM tbl_product";
+$sql = "SELECT id,fullname,username,email FROM tbl_customer";
 $res = mysqli_query($conn, $sql);
 
 include "admin_navbar.php";?>
@@ -16,7 +16,7 @@ include "admin_navbar.php";?>
             </div>
                 <hr class="custom-line">
                 <ul>
-                    <li><a href="customer_list.php">Customer</a></li>
+                    <li><a href="#">Customer</a></li>
                     <li><a href="product_list.php">Product</a></li>
                     <li><a href="categories_list.php">Categories</a></li>
                     <li><a href="#">Order</a></li>
@@ -30,11 +30,11 @@ include "admin_navbar.php";?>
         <!-- add new product button -->
         <div class="admin-product-tbl-container">
         <div class="tbl-top-container">
-        <div class="new-prodcut-contaier">
+        <!-- <div class="new-prodcut-contaier">
             <a href="add_new_product.php">Add new product</a>
-            </div>
+            </div> -->
             <div class="all-products">
-                All Products
+                All Customer
             </div>
         </div>
 <!-- scrollable tabel -->
@@ -43,26 +43,21 @@ include "admin_navbar.php";?>
             <thead>
                 <tr>
                     <th>Id</th>
-                    <th>Product Name</th>
-                    <th>Image</th>
-                    <th>Price</th>
+                    <th>Fullname</th>
+                    <th>Email</th>
+                    <th>Username</th>
                     <th>Action</th>
                 </tr>
             </thead>
             <tbody>
                 <?php while($row = mysqli_fetch_assoc($res)): ?>
                 <tr>
-                    <td><?php echo $row['product_id']; ?></td>
-                    <td><?php echo $row['name']; ?></td>
+                    <td><?php echo $row['id']; ?></td>
+                    <td><?php echo $row['fullname']; ?></td>
+                    <td><?php echo $row['username']; ?></td>
+                    <td><?php echo $row['email']; ?></td>
                     <td>
-                        <div class="tbl-img-container">
-                            <img src="<?php echo $row['image_path']; ?>" alt="<?php echo $row['name']; ?>">
-                        </div>
-                    </td>
-                    <td><?php echo $row['price']; ?></td>
-                    <td>
-                        <a href="/dokan/view/edit_product.php?id=<?php echo $row['product_id'];?>" id="product-edit">Edit</a>
-                        <a href="/dokan/controller/delete_product_controller.php?id=<?php echo $row['product_id'];?>" id="product-delete">Delete</a>
+                        <a href="/dokan/controller/remove_customer_controller.php?id=<?php echo $row['id'];?>" id="product-delete">Remove</a>
                     </td>
                 </tr>
                 <?php endwhile; ?>

@@ -1,10 +1,9 @@
 <?php
 session_start();
+include "../database/dbcon.php";
 
-// Check if form is submitted
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+if (isset($_POST['submit'])) {
 
-    // Retrieve POST data
     $name = $_POST['name'];
     $category = $_POST['categories'];
     $description = $_POST['description'];
@@ -12,24 +11,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $offer = $_POST['offer'] ?? 0;
     $discount = $_POST['discount'] ?? 0;
 
-    // Check for required fields
-    if (empty($name) || empty($category) || empty($description) || empty($price)) {
-        $_SESSION['msg'] = "Please fill in all required fields.";
-        header("Location: ../view/add_new_product.php"); // Redirect back to the form
-        exit();
-    }
-
     // Handle file upload (image)
     $file_path = null;
     if (isset($_FILES['image']) && $_FILES['image']['error'] === 0) {
         $file = $_FILES['image'];
         $image_name = $file['name'];
 
-        if ($file['size'] < 3000000) { // File size check (max 3MB)
+        if ($file['size'] < 3000000) {
             $allowed_types = ['image/jpg', 'image/jpeg', 'image/png', 'image/gif'];
             if (in_array($file['type'], $allowed_types)) {
                 $target_dir = '../uploads/';
-                $filename = uniqid('prod_'); // Unique filename
+                $filename = uniqid('prod_'); 
                 $file_extension = pathinfo($image_name, PATHINFO_EXTENSION);
                 $file_path = $target_dir . $filename . '.' . $file_extension;
 
@@ -59,26 +51,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         header("Location: ../view/add_new_product.php");
         exit();
     }
+        
+        $sql = "INSERT INTO tbl_product (name, category, image_path, description, price, offer, discount) 
+        VALUES ('$name', '$category', '$file_path', '$description', '$price', '$offer', '$discount')";
+        $result = mysqli_query($conn, $sql);
 
-    // Database insertion
-    include_once "../database/dbcon.php"; 
-
-    // Prepare the SQL query
-    $stmt = $conn->prepare("INSERT INTO tbl_product (name, category, image_path, description, price, offer, discount) 
-                            VALUES (?, ?, ?, ?, ?, ?, ?)");
-
-    $stmt->bind_param("ssssdis", $name, $category, $file_path, $description, $price, $offer, $discount);
-
-    if ($stmt->execute()) {
-        $_SESSION['msg'] = "Product added successfully!";
-    } else {
-        $_SESSION['msg'] = "Oops! There was an error adding the product.";
-    }
-
-    $stmt->close();
-    $conn->close();
-
-    // Redirect back to the manage product page
     header("Location: ../view/product_list.php");
     exit();
 }
