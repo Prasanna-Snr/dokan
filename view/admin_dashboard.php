@@ -7,9 +7,18 @@ include "../database/dbcon.php";
 $query = "SELECT COUNT(*) AS total FROM tbl_product"; //tatal = temoprary column or alias
 $result = mysqli_query($conn, $query);
 
+$sql = "SELECT COUNT(*) AS total_categories FROM tbl_categories"; 
+$res = mysqli_query($conn, $sql);
+
+
 if ($result) {
     $row = mysqli_fetch_assoc($result);
     $total = $row['total'];
+}
+
+if($res){
+    $row1 =  mysqli_fetch_assoc($res);
+    $total_categories = $row1['total_categories'];
 }
 ?>
 
@@ -27,7 +36,7 @@ if ($result) {
             <ul>
                 <li><a href="#">Customer</a></li>
                 <li><a href="product_list.php">Product</a></li>
-                <li><a href="#">Categories</a></li>
+                <li><a href="categories_list.php">Categories</a></li>
                 <li><a href="#">Order</a></li>
                 <li><a href="#">Setting</a></li>
                 <li><a href="#">Profile</a></li>
@@ -52,9 +61,9 @@ if ($result) {
                 </div>
             </a>
 
-            <a href="" class="admin-items">
+            <a href="categories_list.php" class="admin-items">
                 <div class="min-container">
-                    <span id="no">70</span>
+                    <span id="no"><?php echo $total_categories?></span>
                     <p id="min-text"> Total Categories</p>
                 </div>
             </a>

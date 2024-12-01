@@ -1,10 +1,3 @@
-<?php
-session_start();
-if(isset($_SESSION['email'])){
-    header("location: admin_dashboard.php");
-} 
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
