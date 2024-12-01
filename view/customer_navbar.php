@@ -30,7 +30,7 @@
                 <i class="fa fa-search"></i>
             </div>
 
-            <a href="#" class="cart">
+            <a href="../view/cart_d.php" class="cart">
                 <span>Your cart</span>
                 <i class="fa fa-shopping-cart"></i>
             </a>
