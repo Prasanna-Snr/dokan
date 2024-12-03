@@ -1,14 +1,15 @@
 ==========product table=========
 CREATE TABLE tbl_product (
-    product_id INT AUTO_INCREMENT PRIMARY KEY, 
-    name VARCHAR(255) NOT NULL,              
-    category VARCHAR(100) NOT NULL,           
-    image_path VARCHAR(255),                  
-    description TEXT NOT NULL,                
-    price INT NOT NULL,                       
-    offer INT DEFAULT 0,                      
-    discount INT DEFAULT 0,                   
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP 
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  name VARCHAR(255) NOT NULL,
+  category INT(11) NOT NULL,
+  image_path VARCHAR(255) DEFAULT NULL,
+  description TEXT NOT NULL,
+  price INT(11) NOT NULL,
+  offer INT(11) DEFAULT 0,
+  discount INT(11) DEFAULT 0,
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP(),
+  FOREIGN KEY (category) REFERENCES tbl_categories(id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 ==========admin table============
@@ -35,4 +36,27 @@ CREATE TABLE tbl_customer (
     username VARCHAR(50) NOT NULL UNIQUE,
     email VARCHAR(100) NOT NULL UNIQUE,
     password VARCHAR(255) NOT NULL
+);
+
+=============table cart=================
+CREATE TABLE tbl_cart (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    product_id INT,
+    customer_id INT,
+    quantity INT NOT NULL,
+    price INT,  
+    total_price INT GENERATED ALWAYS AS (quantity * price) STORED,
+    FOREIGN KEY (product_id) REFERENCES tbl_product(id) ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (customer_id) REFERENCES tbl_categories(id) ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+==============order table=====================
+CREATE TABLE tbl_order (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    customer_id INT,
+    product_id INT,
+    quantity INT NOT NULL,
+    order_method VARCHAR(255),
+    FOREIGN KEY (customer_id) REFERENCES tbl_customer(id) ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (product_id) REFERENCES tbl_product(id) ON DELETE CASCADE ON UPDATE CASCADE
 );

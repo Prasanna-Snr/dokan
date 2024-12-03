@@ -3,9 +3,12 @@ session_start();
 include "admin_navbar.php";
 include "../database/dbcon.php";
 
+$sql = "SELECT id, c_name FROM tbl_categories";
+$result = $conn->query($sql);
+
 if (isset($_GET['id'])):
     $product_id = $_GET['id'];
-    $sql = "SELECT * FROM tbl_product WHERE product_id=$product_id";
+    $sql = "SELECT * FROM tbl_product WHERE id=$product_id";
     $res = mysqli_query($conn, $sql);
 
     while ($row = mysqli_fetch_assoc($res)): 
@@ -20,7 +23,7 @@ if (isset($_GET['id'])):
         <div class="admin-product-form-container">
             <h1 class="admin-product-form-header">Edit Product</h1>
             <form class="admin-product-form" action="../controller/update_controller.php" method="POST" enctype="multipart/form-data">
-                <input type="hidden" value="<?php echo $product_id; ?>" name="id">
+                <input type="hidden" value="<?php echo $id; ?>" name="id">
                 
                 <div class="admin-product-form-group">
                     <label class="admin-product-form-label">Product Name:</label>
@@ -29,20 +32,19 @@ if (isset($_GET['id'])):
                 
                 <div class="admin-product-form-group">
                     <label class="admin-product-form-label">Categories:</label>
-                    <select name="categories" id="categories" class="admin-product-form-select" required>
-                        <option value="" disabled>Select a category</option>
-                        <option value="electronics" <?php echo ($categories == 'electronics') ? 'selected' : ''; ?>>Electronics</option>
-                        <option value="fashion" <?php echo ($categories == 'fashion') ? 'selected' : ''; ?>>Fashion</option>
-                        <option value="home" <?php echo ($categories == 'home') ? 'selected' : ''; ?>>Home and Furniture</option>
-                        <option value="beauty" <?php echo ($categories == 'beauty') ? 'selected' : ''; ?>>Beauty and Personal Care</option>
-                        <option value="drones" <?php echo ($categories == 'drones') ? 'selected' : ''; ?>>Drones</option>
-                    </select>
+                    <select name="categories" class="admin-product-form-select" required>
+                <option value="" disabled selected>Select a category</option>
+                <?php
+                while ($row = $result->fetch_assoc()) {
+                    echo '<option value="' . $row['id'] . '">' . $row['c_name'] . '</option>';
+                }
+                ?>
+            </select>
                 </div>
                 
                 <div class="admin-product-form-group">
                     <label class="admin-product-form-label">Product Image:</label>
                     <?php if ($image_path): ?>
-                        <!-- Display image with fixed dimensions -->
                         <img src="<?php echo $image_path; ?>" alt="Product Image" class="product-image-preview" style="width: 200px; height: 200px; object-fit: cover;" />
                         <br>
                     <?php endif; ?>

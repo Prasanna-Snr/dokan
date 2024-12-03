@@ -3,7 +3,7 @@ session_start();
 include "../database/dbcon.php";
 
 if (isset($_POST['submit'])) {
-    $product_id = $_POST['id'];
+    $id = $_POST['id'];
     $name = $_POST['name'];
     $categories = $_POST['categories'];
     $description = $_POST['description'];
@@ -19,22 +19,24 @@ if (isset($_POST['submit'])) {
         $upload_dir = "../uploads/"; 
         $new_image_path = $upload_dir . uniqid() . "_" . basename($image_name);
 
-
         if (move_uploaded_file($image_tmp_name, $new_image_path)) {
             $image_path = $new_image_path;
         }
     }
 
+    $sql = "UPDATE tbl_product SET 
+            name='$name', 
+            category='$categories', 
+            description='$description', 
+            price='$price', 
+            offer='$offer', 
+            discount='$discount'";
 
-    $sql = "UPDATE tbl_product 
-            SET name='$name', category='$categories', description='$description', price='$price', offer='$offer', discount='$discount'";
-
-  
     if ($image_path) {
         $sql .= ", image_path='$image_path'";
     }
 
-    $sql .= " WHERE product_id=$product_id";
+    $sql .= " WHERE id='$product_id'";
 
     $res = mysqli_query($conn, $sql);
 

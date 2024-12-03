@@ -1,7 +1,7 @@
 <?php
 session_start();
 include "../database/dbcon.php";
-$sql = "SELECT product_id,name,image_path,price FROM tbl_product";
+$sql = "SELECT id,name,image_path,price FROM tbl_product";
 $res = mysqli_query($conn, $sql);
 
 include "admin_navbar.php";?>
@@ -52,7 +52,7 @@ include "admin_navbar.php";?>
             <tbody>
                 <?php while($row = mysqli_fetch_assoc($res)): ?>
                 <tr>
-                    <td><?php echo $row['product_id']; ?></td>
+                    <td><?php echo $row['id']; ?></td>
                     <td><?php echo $row['name']; ?></td>
                     <td>
                         <div class="tbl-img-container">
@@ -61,8 +61,8 @@ include "admin_navbar.php";?>
                     </td>
                     <td><?php echo $row['price']; ?></td>
                     <td>
-                        <a href="/dokan/view/edit_product.php?id=<?php echo $row['product_id'];?>" id="product-edit">Edit</a>
-                        <a href="/dokan/controller/delete_product_controller.php?id=<?php echo $row['product_id'];?>" id="product-delete">Delete</a>
+                        <a href="/dokan/view/edit_product.php?id=<?php echo $row['id'];?>" id="product-edit">Edit</a>
+                        <a href="/dokan/controller/delete_product_controller.php?id=<?php echo $row['id'];?>" id="product-delete">Delete</a>
                     </td>
                 </tr>
                 <?php endwhile; ?>

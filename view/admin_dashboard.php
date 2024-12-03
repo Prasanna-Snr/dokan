@@ -10,6 +10,9 @@ $result = mysqli_query($conn, $query);
 $sql = "SELECT COUNT(*) AS total_categories FROM tbl_categories"; 
 $res = mysqli_query($conn, $sql);
 
+$sql_customer = "SELECT COUNT(*) AS total_customer FROM tbl_customer"; 
+$res_customer = mysqli_query($conn, $sql_customer);
+
 
 if ($result) {
     $row = mysqli_fetch_assoc($result);
@@ -19,6 +22,11 @@ if ($result) {
 if($res){
     $row1 =  mysqli_fetch_assoc($res);
     $total_categories = $row1['total_categories'];
+}
+
+if($res_customer){
+    $row2 = mysqli_fetch_assoc($res_customer);
+    $total_customer = $row2['total_customer'];
 }
 ?>
 
@@ -47,24 +55,24 @@ if($res){
     <div class="image-section">
         <div class="item-container">
             
-            <a href="" class="admin-items">
+            <a href="customer_list.php" class="admin-items">
                 <div class="min-container">
-                    <span id="no">200</span>
-                    <p id="min-text">Customer Management</p>
+                    <span id="no"><?php echo $total_customer?></span>
+                    <p id="min-text">Manage Customer</p>
                 </div>
             </a>
 
             <a href="product_list.php" class="admin-items">
                 <div class="min-container">
                 <span id="no"><?php echo $total; ?></span>
-                    <p id="min-text">Total Product</p>
+                    <p id="min-text">ManageProduct</p>
                 </div>
             </a>
 
             <a href="categories_list.php" class="admin-items">
                 <div class="min-container">
                     <span id="no"><?php echo $total_categories?></span>
-                    <p id="min-text"> Total Categories</p>
+                    <p id="min-text"> Manage Categories</p>
                 </div>
             </a>
 

@@ -1,5 +1,12 @@
 
-<?php include "admin_navbar.php";?>
+<?php include "admin_navbar.php";
+include "../database/dbcon.php";
+
+$sql = "SELECT id, c_name FROM tbl_categories";
+$result = $conn->query($sql);
+?>
+
+
     <div class="admin-product-form-container">
         <h1 class="admin-product-form-header">Add New Product</h1>
         <form class="admin-product-form" action="../controller/add_product_controller.php" method="POST" enctype="multipart/form-data">
@@ -10,13 +17,14 @@
     <div class="admin-product-form-group">
         <label class="admin-product-form-label">Categories:</label>
         <select name="categories" class="admin-product-form-select" required>
-            <option value="" disabled selected>Select a category</option>
-            <option value="electronics">Electronics</option>
-            <option value="fashion">Fashion</option>
-            <option value="home">Home and Furniture</option>
-            <option value="beauty">Beauty and Personal Care</option>
-            <option value="drones">Drones</option>
-        </select>
+                <option value="" disabled selected>Select a category</option>
+                <?php
+                while ($row = $result->fetch_assoc()) {
+                    echo '<option value="' . $row['id'] . '">' . $row['c_name'] . '</option>';
+                }
+                ?>
+            </select>
+
     </div>
     <div class="admin-product-form-group">
         <label class="admin-product-form-label">Product Image:</label>
