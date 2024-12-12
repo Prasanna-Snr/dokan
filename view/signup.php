@@ -10,7 +10,7 @@
     <p id="login-txt">Sign Up</p>
     <div class="login-container">
         <div class="login-box">
-            <form action="../controller/insert_admin_controller.php" method="POST">
+            <form action="../controller/admin_signup_controller.php" method="POST">
                 <div class="from-field">
                     <label for="fullname">Fullname:</label>
                     <input type="text" name="fullname" id="fullname" class="contact-input-field" placeholder="Fullname">

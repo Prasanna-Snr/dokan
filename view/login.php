@@ -10,7 +10,7 @@
     <p id="login-txt">login</p>
     <div class="login-container">
         <div class="login-box">
-            <form action="../controller/login_controller.php" method="POST">
+            <form action="../controller/admin_login_controller.php" method="POST">
                 <div class="from-field">
                     <label for="email">Email:</label>
                     <input type="email" name="email" class="contact-input-field" id="email" placeholder="Email">

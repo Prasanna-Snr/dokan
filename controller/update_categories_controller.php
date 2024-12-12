@@ -7,7 +7,6 @@ if (isset($_POST['submit'])) {
     $c_name = $_POST['c_name'];
     
     $sql = "UPDATE tbl_categories SET c_name='$c_name' WHERE id = $id";
-
     $res = mysqli_query($conn, $sql);
 }
 

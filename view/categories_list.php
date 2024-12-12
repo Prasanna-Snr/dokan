@@ -1,6 +1,6 @@
 <?php
 session_start();
-include "../database/dbcon.php";
+include "../model/admin_model.php";
 $sql = "SELECT id,c_name FROM tbl_categories";
 $res = mysqli_query($conn, $sql);
 
@@ -54,7 +54,7 @@ include "admin_navbar.php";?>
                     <td><?php echo $row['c_name']; ?></td>
                     <td>
                         <a href="/dokan/view/edit_categories.php?id=<?php echo $row['id'];?>" id="product-edit">Edit</a>
-                        <a href="/dokan/controller/delete_categories_controller.php?id=<?php echo $row['id'];?>" id="product-delete">Delete</a>
+                        <a href="/dokan/controller/categories_controller.php?id=<?php echo $row['id'];?>" id="product-delete">Delete</a>
                     </td>
                 </tr>
                 <?php endwhile; ?>

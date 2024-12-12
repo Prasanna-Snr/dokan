@@ -1,33 +1,9 @@
 <?php
-
-
-include "../database/dbcon.php";
-
-
-$query = "SELECT COUNT(*) AS total FROM tbl_product"; //tatal = temoprary column or alias
-$result = mysqli_query($conn, $query);
-
-$sql = "SELECT COUNT(*) AS total_categories FROM tbl_categories"; 
-$res = mysqli_query($conn, $sql);
-
-$sql_customer = "SELECT COUNT(*) AS total_customer FROM tbl_customer"; 
-$res_customer = mysqli_query($conn, $sql_customer);
-
-
-if ($result) {
-    $row = mysqli_fetch_assoc($result);
-    $total = $row['total'];
-}
-
-if($res){
-    $row1 =  mysqli_fetch_assoc($res);
-    $total_categories = $row1['total_categories'];
-}
-
-if($res_customer){
-    $row2 = mysqli_fetch_assoc($res_customer);
-    $total_customer = $row2['total_customer'];
-}
+include "../model/admin_model.php";
+$obj = new AdminCrudImpl();
+$total_customer = $obj->getTotalCustomers();
+$total = $obj->getTotalProducts();
+$total_categories = $obj->getTotalCategories();
 ?>
 
 <?php include "admin_navbar.php";?>

@@ -1,7 +1,7 @@
 <?php
 session_start();
 include "admin_navbar.php";
-include "../database/dbcon.php";
+include "../model/admin_model.php";
 
 $sql = "SELECT id, c_name FROM tbl_categories";
 $result = $conn->query($sql);

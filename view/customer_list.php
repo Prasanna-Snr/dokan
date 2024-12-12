@@ -1,6 +1,6 @@
 <?php
 session_start();
-include "../database/dbcon.php";
+include "../model/admin_model.php";
 $sql = "SELECT id,fullname,username,email FROM tbl_customer";
 $res = mysqli_query($conn, $sql);
 

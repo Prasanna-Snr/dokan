@@ -1,7 +1,7 @@
 <?php 
 session_start();
 include "admin_navbar.php";
-include "../database/dbcon.php";
+include "../model/admin_model.php";
 
 if (isset($_GET['id'])):
     $id = $_GET['id'];

@@ -1,6 +1,6 @@
 <?php
 session_start();
-include "../database/dbcon.php";
+include "../model/admin_model.php";
 $sql = "SELECT id,name,image_path,price FROM tbl_product";
 $res = mysqli_query($conn, $sql);
 

@@ -31,13 +31,10 @@ if (isset($_POST['submit'])) {
             price='$price', 
             offer='$offer', 
             discount='$discount'";
-
     if ($image_path) {
         $sql .= ", image_path='$image_path'";
     }
-
     $sql .= " WHERE id='$product_id'";
-
     $res = mysqli_query($conn, $sql);
 
     if ($res) {
