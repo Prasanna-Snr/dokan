@@ -33,6 +33,7 @@ class Product {
 
 interface ProductCrud{
     public function addProduct($name,$category,$file_path,$description,$price,$offer,$discount);
+    public function deleteProduct($id);
 }
 
 class ProductCrudImpl implements ProductCrud{
@@ -49,6 +50,13 @@ class ProductCrudImpl implements ProductCrud{
         $sql = "INSERT INTO tbl_product (name, category, image_path, description, price, offer, discount) 
         VALUES ('$name', '$category', '$file_path', '$description', '$price', '$offer', '$discount')";
         $result = mysqli_query($this->conn, $sql);
+        return true;
+    }
+
+
+    Public function deleteProduct($id){
+        $sql = "DELETE FROM tbl_product WHERE id=$id";
+        mysqli_query($this->conn, $sql);
         return true;
     }
 }

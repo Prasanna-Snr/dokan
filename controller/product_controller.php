@@ -61,4 +61,17 @@ if (isset($_POST['submit'])) {
 }
 
 
+
+if (isset($_GET['id'])) {
+    $id = $_GET['id'];
+
+    $obj = new ProductCrudImpl();
+    $deleteProductResult = $obj->deleteProduct($id);
+
+    if ($deleteProductResult) {
+        header("Location: ../view/product_list.php");
+    } 
+}
+
+
 ?>
