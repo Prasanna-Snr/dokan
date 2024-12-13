@@ -1,6 +1,7 @@
 
-<?php include "admin_navbar.php";
-include "../database/dbcon.php";
+<?php 
+include "admin_navbar.php";
+include "../model/dbcon.php";
 
 $sql = "SELECT id, c_name FROM tbl_categories";
 $result = $conn->query($sql);
@@ -9,14 +10,14 @@ $result = $conn->query($sql);
 
     <div class="admin-product-form-container">
         <h1 class="admin-product-form-header">Add New Product</h1>
-        <form class="admin-product-form" action="../controller/add_product_controller.php" method="POST" enctype="multipart/form-data">
+        <form class="admin-product-form" action="../controller/product_controller.php" method="POST" enctype="multipart/form-data">
     <div class="admin-product-form-group">
         <label class="admin-product-form-label">Product Name:</label>
-        <input type="text" name="name" id="name" class="admin-product-form-input" required>
+        <input type="text" name="name" id="name" class="admin-product-form-input">
     </div>
     <div class="admin-product-form-group">
         <label class="admin-product-form-label">Categories:</label>
-        <select name="categories" class="admin-product-form-select" required>
+        <select name="categories" class="admin-product-form-select">
                 <option value="" disabled selected>Select a category</option>
                 <?php
                 while ($row = $result->fetch_assoc()) {
@@ -28,15 +29,15 @@ $result = $conn->query($sql);
     </div>
     <div class="admin-product-form-group">
         <label class="admin-product-form-label">Product Image:</label>
-        <input type="file" name="image" id="image" class="admin-product-form-input-file" accept="image/*" required>
+        <input type="file" name="image" id="image" class="admin-product-form-input-file" accept="image/*">
     </div>
     <div class="admin-product-form-group">
         <label class="admin-product-form-label">Description:</label>
-        <textarea name="description" id="description" class="admin-product-form-textarea" rows="4" required></textarea>
+        <textarea name="description" id="description" class="admin-product-form-textarea" rows="4"></textarea>
     </div>
     <div class="admin-product-form-group">
         <label class="admin-product-form-label">Price:</label>
-        <input type="number" name="price-input" id="price-input" class="admin-product-form-input" min="0" required>
+        <input type="number" name="price-input" id="price-input" class="admin-product-form-input" min="0">
     </div>
     <div class="admin-product-form-group">
         <label class="admin-product-form-label">Offer:</label>

@@ -2,7 +2,7 @@
 class Product {
     public string $name;
     public string $category;
-    public string $image_path;
+    public string $file_path;
     public string $description;
     public int $price;
     public int $offer;
@@ -12,7 +12,7 @@ class Product {
     public function __construct(
         string $name="",
         string $category="",
-        string $image_path="",
+        string $file_path="",
         string $description="",
         int $price=0,
         int $offer = 0,
@@ -21,7 +21,7 @@ class Product {
     ) {
         $this->name = $name;
         $this->category = $category;
-        $this->image_path = $image_path;
+        $this->file_path = $file_path;
         $this->description = $description;
         $this->price = $price;
         $this->offer = $offer;
@@ -32,6 +32,24 @@ class Product {
 
 
 interface ProductCrud{
-    public function addProduct();
+    public function addProduct($name,$category,$file_path,$description,$price,$offer,$discount);
+}
+
+class ProductCrudImpl implements ProductCrud{
+    private $conn;
+
+    public function __construct(){
+        global $conn;
+        $this->conn=$conn;
+    }
+
+
+
+    public function addProduct($name,$category,$file_path,$description,$price,$offer,$discount){
+        $sql = "INSERT INTO tbl_product (name, category, image_path, description, price, offer, discount) 
+        VALUES ('$name', '$category', '$file_path', '$description', '$price', '$offer', '$discount')";
+        $result = mysqli_query($this->conn, $sql);
+        return true;
+    }
 }
 ?>

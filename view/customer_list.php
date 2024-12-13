@@ -57,7 +57,7 @@ include "admin_navbar.php";?>
                     <td><?php echo $row['username']; ?></td>
                     <td><?php echo $row['email']; ?></td>
                     <td>
-                        <a href="/dokan/controller/remove_customer_controller.php?id=<?php echo $row['id'];?>" id="product-delete">Remove</a>
+                        <a href="/dokan/controller/customer_controller.php?id=<?php echo $row['id'];?>" id="product-delete">Remove</a>
                     </td>
                 </tr>
                 <?php endwhile; ?>

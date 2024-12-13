@@ -1,9 +1,9 @@
 <?php
 session_start();
-include "../database/dbcon.php";
 
+include "../model/dbcon.php";
+include "../model/product_model.php";
 if (isset($_POST['submit'])) {
-
     $name = $_POST['name'];
     $category = $_POST['categories'];
     $description = $_POST['description'];
@@ -51,12 +51,14 @@ if (isset($_POST['submit'])) {
         header("Location: ../view/add_new_product.php");
         exit();
     }
-        
-        $sql = "INSERT INTO tbl_product (name, category, image_path, description, price, offer, discount) 
-        VALUES ('$name', '$category', '$file_path', '$description', '$price', '$offer', '$discount')";
-        $result = mysqli_query($conn, $sql);
 
-    header("Location: ../view/product_list.php");
-    exit();
+    $obj=new ProductCrudImpl();
+    $addProductResult = $obj->addProduct($name,$category,$file_path,$description,$price,$offer,$discount);
+    if($addProductResult){
+        header("Location: ../view/product_list.php");
+    }
+
 }
+
+
 ?>
