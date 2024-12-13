@@ -3,7 +3,7 @@ include "dbcon.php";
 class Category{
     public $c_name;
 
-    public function __construct($c_name){
+    public function __construct($c_name=""){
         $this->c_name=$c_name;
     }
 }
@@ -12,7 +12,7 @@ class Category{
 interface categoryCrud{
     public function addCategories($c_name);
     public function deleteCategories($id);
-    // public function updateCategories($c_name);
+    public function updateCategories($id,$c_name);
     // public function getAllCategories();
 }
 
@@ -36,6 +36,13 @@ class categoryCrudImpl implements categoryCrud{
         $sql = "DELETE FROM tbl_categories WHERE id = $id";
         $result = mysqli_query($this->conn, $sql);
         return true; 
+    }
+
+
+    public function updateCategories($id,$c_name){
+        $sql = "UPDATE tbl_categories SET c_name='$c_name' WHERE id = $id";
+        $res = mysqli_query($this->conn, $sql);
+        return true;
     }
 }
 ?>
