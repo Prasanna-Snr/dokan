@@ -35,7 +35,8 @@ class AdminCrudImpl implements AdminCrud{
     public function addAdmin($fullname, $username, $email, $password){
         $hashPwd = sha1($password);
         $query ="INSERT INTO tbl_admin (fullname, username,email,password) VALUES ('$fullname', '$username', '$email','$hashPwd')";
-        $result = mysqli_query($this->conn,$query);
+        mysqli_query($this->conn,$query);
+        return true;
     }
 
 
