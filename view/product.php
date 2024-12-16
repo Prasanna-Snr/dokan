@@ -7,7 +7,7 @@
         <div class="first-product-row">
             <div class="items">
                 <a href="product_detail.html" class="img-container">
-                    <img src="images/img2.png" alt="">
+                    <img src="/dokan/images/img17.png" alt="">
                 </a>
                 <p id="title">Lorem ipsum dolor sit amet.</p>
                 <div class="price-container">
@@ -18,7 +18,7 @@
 
             <div class="items">
                 <a href="product_detail.html" class="img-container">
-                    <img src="images/img2.png" alt="">
+                    <img src="/dokan/images/img8.png" alt="">
                 </a>
                 <p id="title">Lorem ipsum dolor sit amet.</p>
                 <div class="price-container">
@@ -29,7 +29,7 @@
 
             <div class="items">
                 <a href="product_detail.html" class="img-container">
-                    <img src="images/img2.png" alt="">
+                    <img src="/dokan/images/img15.png" alt="">
                 </a>
                 <p id="title">Lorem ipsum dolor sit amet.</p>
                 <div class="price-container">
@@ -40,7 +40,7 @@
 
             <div class="items">
                 <a href="product_detail.html" class="img-container">
-                    <img src="images/img2.png" alt="">
+                    <img src="/dokan/images/img14.png" alt="">
                 </a>
                 <p id="title">Lorem ipsum dolor sit amet.</p>
                 <div class="price-container">
@@ -58,7 +58,7 @@
         <div class="first-product-row">
             <div class="items">
                 <a href="product_detail.html" class="img-container">
-                    <img src="images/img2.png" alt="">
+                    <img src="/dokan/images/img13.png" alt="">
                 </a>
                 <p id="title">Lorem ipsum dolor sit amet.</p>
                 <div class="price-container">
@@ -69,7 +69,7 @@
 
             <div class="items">
                 <a href="product_detail.html" class="img-container">
-                    <img src="images/img2.png" alt="">
+                    <img src="/dokan/images/img12.png" alt="">
                 </a>
                 <p id="title">Lorem ipsum dolor sit amet.</p>
                 <div class="price-container">
@@ -80,7 +80,7 @@
 
             <div class="items">
                 <a href="product_detail.html" class="img-container">
-                    <img src="images/img2.png" alt="">
+                    <img src="/dokan/images/img11.png" alt="">
                 </a>
                 <p id="title">Lorem ipsum dolor sit amet.</p>
                 <div class="price-container">
@@ -91,7 +91,7 @@
 
             <div class="items">
                 <a href="product_detail.html" class="img-container">
-                    <img src="images/img2.png" alt="">
+                    <img src="/dokan/images/img10.png" alt="">
                 </a>
                 <p id="title">Lorem ipsum dolor sit amet.</p>
                 <div class="price-container">

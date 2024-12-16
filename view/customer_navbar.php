@@ -1,10 +1,14 @@
+<?php 
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Categories</title>
+    <title>dokan</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 
@@ -30,8 +34,15 @@
                 <i class="fa fa-search"></i>
             </div>
 
-            <a href="#" class="cart">
-                <span>Your cart</span>
+            <?php 
+            $count =0;
+            if(isset($_SESSION['cart'])){
+                $count = count($_SESSION['cart']);
+            }
+            ?>
+
+            <a href="/dokan/view/cart.php" class="cart">
+                <span>Your cart  <?php echo $count?></span>
                 <i class="fa fa-shopping-cart"></i>
             </a>
 

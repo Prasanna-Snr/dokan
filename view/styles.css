@@ -228,15 +228,16 @@ nav ul li a:hover::after {
   position: relative;
   display: flex;
   justify-content: center;
-  margin-left: 80px;
+  margin-left: 130px;
   margin-right: 40px;
   background-color: rgb(228, 228, 228);
+  padding: 20px;
 
 }
 
 .big-item img {
   width: 100%;
-  height: 739px;
+  height: 700px;
   object-fit: contain;
 }
 
@@ -311,6 +312,7 @@ nav ul li a:hover::after {
   border-radius: 50px;
   transition: background-color 0.7s, color 0.3s;
   text-decoration: none;
+  border: none;
 }
 
 .add-to-cart:hover {
@@ -1686,4 +1688,10 @@ td {
 
 .admin-product-form-group.error input:focus {
   box-shadow: 0 0 7px rgba(255, 0, 0, 0.406);
+}
+
+#rmv-outline{
+  outline: none;
+  border: none;
+  font-size: 18px;
 }

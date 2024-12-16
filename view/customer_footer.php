@@ -33,10 +33,10 @@
                 <p id="quick-link">Quick Links</p>
                 <div class="link">
                     <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Categories</a></li>
-                        <li><a href="#">Product</a></li>
-                        <li><a href="#">Contact</a></li>
+                        <li><a href="/dokan/view/home.php">Home</a></li>
+                        <li><a href="/dokan/view/categories.php">Categories</a></li>
+                        <li><a href="/dokan/view/product.php">Product</a></li>
+                        <li><a href="/dokan/view/contact.php">Contact</a></li>
                     </ul>
                 </div>
             </div>

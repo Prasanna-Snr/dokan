@@ -20,7 +20,7 @@
             <div class="item-container">
                 <div class="items">
                     <a href="product_detail.html" class="img-container">
-                        <img src="/dokan/images/bigimg.jpg" alt="">
+                        <img src="/dokan/images/img1.png" alt="">
                     </a>
                     <p id="title">Lorem ipsum dolor sit amet.</p>
                     <div class="price-container">
@@ -31,7 +31,7 @@
 
                 <div class="items">
                     <a href="product_detail.html" class="img-container">
-                        <img src="/dokan/images/profile_user.jpg" alt="">
+                        <img src="/dokan/images/img2.png" alt="">
                     </a>
                     <p id="title">Lorem ipsum dolor sit amet.</p>
                     <div class="price-container">
@@ -42,7 +42,7 @@
 
                 <div class="items">
                     <a href="product_detail.html" class="img-container">
-                        <img src="images/img2.png" alt="">
+                        <img src="/dokan/images/img4.png" alt="">
                     </a>
                     <p id="title">Lorem ipsum dolor sit amet.</p>
                     <div class="price-container">
@@ -56,7 +56,7 @@
             <div class="item-container">
                 <div class="items">
                     <a href="product_detail.html" class="img-container">
-                        <img src="/dokan/images/img2.png" alt="">
+                        <img src="/dokan/images/img5.png" alt="">
                     </a>
                     <p id="title">Lorem ipsum dolor sit amet.</p>
                     <div class="price-container">
@@ -67,7 +67,7 @@
 
                 <div class="items">
                     <a href="product_detail.html" class="img-container">
-                        <img src="images/img2.png" alt="">
+                        <img src="/dokan/images/img6.png" alt="">
                     </a>
                     <p id="title">Lorem ipsum dolor sit amet.</p>
                     <div class="price-container">
@@ -78,7 +78,7 @@
 
                 <div class="items">
                     <a href="product_detail.html" class="img-container">
-                        <img src="images/img2.png" alt="">
+                        <img src="/dokan/images/img7.png" alt="">
                     </a>
                     <p id="title">Lorem ipsum dolor sit amet.</p>
                     <div class="price-container">
