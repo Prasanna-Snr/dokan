@@ -18,6 +18,7 @@ session_start();
                     <th>Products</th>
                     <th>Price</th>
                     <th>Quantity</th>
+                    <th>Total [Rs]</th>
                     <th>Actions</th>
                 </tr>
             </thead>
@@ -28,9 +29,15 @@ session_start();
                 foreach($_SESSION['cart'] as $key=>$value){
                     $total = $total+$value['price'];
                     echo "<tr>
-                    <td>$value[image]</td>
-                    <td>$value[price]</td>
-                    <td><input  id='rmv-outline' type='number' min='1' max='10' value='$value[quantity]'></td>
+                    <td><img src='" . $value['image'] . "' alt='" . $value['product_name'] . "' class='cart-product-image'></td>
+                    <td>$value[price] <input type='hidden'  class='pprice' value='$value[price]'></td>
+                    <td>
+                        <form action='../controller/cart_controller.php' method='POST'>
+                            <input class='pquantity' id='rmv-outline' type='number' min='1' max='10' onchange='this.form.submit();' name='modifiy_quantity' value='$value[quantity]'>
+                            <input type='hidden' name='rmv_product' value='$value[product_name]'>
+                        </form>
+                    </td>
+                    <td class='ptotal'></td>
                     <td>
                         <form action='../controller/cart_controller.php' method='POST'>
                             <button name='remove_product' class='cart-remove-btn'> Remove  </button>
@@ -46,7 +53,7 @@ session_start();
             </tbody>
         </table>
         <div class="cart-footer">
-            <div class="cart-total-price"> Total Amount: <?php echo "Rs: ". $total. ".00"?></div>
+            <div class="cart-total-price" id="final"> Total Amount:</div>
             <button class="cart-checkout-btn" onclick="checkout()">Checkout</button>
         </div>
     </div>
@@ -55,6 +62,24 @@ session_start();
         function checkout(){
          window.location.href="checkout.php"
         }
+
+        var pprice = document.getElementsByClassName('pprice');
+        var pquantity = document.getElementsByClassName('pquantity');
+        var ptotal = document.getElementsByClassName('ptotal');
+        var final = document.getElementById('final');
+        var finalTotal =0;
+
+        function subTotal(){
+            finalTotal=0;
+          for(i=0;i<pprice.length;i++){
+             ptotal[i].innerText=(pprice[i].value)*(pquantity[i].value);
+             finalTotal = finalTotal + (pprice[i].value)*(pquantity[i].value);
+            }
+
+            final.innerText="Total Amount: "+finalTotal+".00";
+        }
+
+        subTotal();
     </script>
 
     

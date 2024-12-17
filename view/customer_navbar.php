@@ -41,11 +41,21 @@ session_start();
             }
             ?>
 
-            <a href="/dokan/view/cart.php" class="cart">
-                <span>Your cart  <?php echo $count?></span>
+                <a href="/dokan/view/cart.php" class="cart" onclick="return checkCart(<?php echo $count; ?>);">
+                <span>Your cart <?php echo $count ?></span>
                 <i class="fa fa-shopping-cart"></i>
             </a>
 
         </div>
 
     </div>
+
+    <script>
+        function checkCart(count) {
+            if (count === 0) {
+                alert("Your cart is empty!");
+                return false;
+            }
+            return true; 
+        }
+    </script>

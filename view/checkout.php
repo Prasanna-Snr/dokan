@@ -4,7 +4,7 @@ include "../view/customer_navbar.php";
     <p id="delivery-info-heading">Delivery Information</p>
 
     <!-- delivery form -->
-     <form action="">
+     <form action="../controller/order_controller.php" method="POST">
         <div class="delivery-container">
             <!-- personal info container -->
             <div class="personal-info">
@@ -23,9 +23,9 @@ include "../view/customer_navbar.php";
                 </div>
 
                 <div class="from-field ">
-                    <label for="house">Building/House:</label>
+                    <label for="house">House Number:</label>
                     <input type="text" name="house" class="contact-input-field" id="house" 
-                    placeholder="Building/House">
+                    placeholder="1414">
                     <span></span>
                 </div>
             </div>
@@ -74,8 +74,10 @@ include "../view/customer_navbar.php";
 
      <script>
         document.getElementById("submit").addEventListener("click",function(event){
-            event.preventDefault();
-            checkData();
+           if(!checkData()){
+            event.preventDefault(); 
+           }
+            
         });
 
         var fullname = document.getElementById("fullname");
@@ -84,8 +86,8 @@ include "../view/customer_navbar.php";
         var region = document.getElementById("region");
         var city = document.getElementById("city");
         var street = document.getElementById("street");
-
-
+        
+        
         function checkData(){
             var fullnameValue = fullname.value.trim();
             var phoneValue = phone.value.trim();
@@ -93,11 +95,13 @@ include "../view/customer_navbar.php";
             var regionValue = region.value.trim();
             var cityValue = city.value.trim();
             var streetValue = street.value.trim();
+            var isValid=true;
 
 
             // for fullname
             if(fullnameValue==""){
                 setError(fullname,"Enter fullname");
+                isValid=false;
             }else{
                 setSuccess(fullname);
             }
@@ -105,6 +109,7 @@ include "../view/customer_navbar.php";
             // for phone
             if(phoneValue == ""){
                 setError(phone,"Enter phone number");
+                isValid=false;
             }else{
                 setSuccess(phone);
             }
@@ -112,6 +117,7 @@ include "../view/customer_navbar.php";
             // for house
             if(houseValue==""){
                 setError(house,"Enter building/house");
+                isValid=false;
             }else{
                 setSuccess(house);
             }
@@ -119,6 +125,7 @@ include "../view/customer_navbar.php";
             // for region
             if(regionValue==""){
                 setError(region,"Enter region");
+                isValid=false;
             }else{
                 setSuccess(region)
             }
@@ -126,6 +133,7 @@ include "../view/customer_navbar.php";
             // for city
             if(cityValue==""){
                 setError(city,"Enter city");
+                isValid=false;
             }else{
                 setSuccess(city);
             }
@@ -133,10 +141,14 @@ include "../view/customer_navbar.php";
             // for street
             if(streetValue==""){
                 setError(street,"Enter street");
+                isValid=false;
             }else{
                 setSuccess(street);
             }
 
+            return isValid;
+
+        }
 
             function setError(f,msg){
                 var parentBox = f.parentElement;
@@ -154,7 +166,7 @@ include "../view/customer_navbar.php";
             regionValue!=""&&cityValue !=""&& streetValue!=""){
                 window.location.href="payment.html";
             }
-        }
+    
      </script>
      
 </body>

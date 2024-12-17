@@ -13,8 +13,8 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
                 window.location.href='../view/home.php';
                 </script>";
             }else{
-
             
+                
             $count= count($_SESSION['cart']);
             $_SESSION['cart'][$count]=array('product_name'=>$_POST['product_name'],'image'=>$_POST['image'], 'price'=>$_POST['price'],'quantity'=>1);
             echo "<script> 
@@ -25,7 +25,6 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
         {
             $_SESSION['cart'][0]=array('product_name'=>$_POST['product_name'], 'image'=>$_POST['image'],'price'=>$_POST['price'],'quantity'=>1);
             echo "<script> 
-            alert('product added');
             window.location.href='../view/home.php';
             </script>";
             
@@ -37,6 +36,17 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
             if($value['product_name']==$_POST['rmv_product']){ 
                 unset($_SESSION['cart'][$key]);
                 $_SESSION['cart']=array_values($_SESSION['cart']);
+                echo "<script>
+                        window.location.href='../view/cart.php';
+                    </script>";
+            }
+        }
+    }
+    
+    if(isset($_POST['modifiy_quantity'])){
+        foreach($_SESSION['cart'] as $key=>$value){
+            if($value['product_name']==$_POST['rmv_product']){ 
+                $_SESSION['cart'][$key]['quantity']=$_POST['modifiy_quantity'];
                 echo "<script>
                         window.location.href='../view/cart.php';
                     </script>";
