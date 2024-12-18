@@ -35,6 +35,7 @@ interface ProductCrud{
     public function addProduct($name,$category,$file_path,$description,$price,$offer,$discount);
     public function deleteProduct($id);
     public function updateProduct($id, $name, $category, $file_path, $description, $price, $offer, $discount);
+    public function getAllProduct();
 
 }
 
@@ -76,6 +77,12 @@ class ProductCrudImpl implements ProductCrud{
                 WHERE id=$id";
         $result = mysqli_query($this->conn, $sql);
         return $result;
+    }
+
+    public function getAllProduct(){
+        $query = "SELECT id, name, category, image_path, description, price, discount, offer FROM tbl_product";
+        $result = mysqli_query($this->conn, $query);
+        return true;
     }
 
 }

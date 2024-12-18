@@ -3,25 +3,25 @@
     <div class="full-container">
         <div class="left-img-section">
             <div class="big-img-container">
-                <img src="images/img2.png" alt="">
+                <img src="/dokan/images/img2.png" alt="">
             </div>
 
             <div class="small-img-row">
                 <div class="small-img-container">
-                    <a href=""><img src="images/img2.png" alt=""></a>
+                    <a href=""><img src="/dokan/images/img2.png" alt=""></a>
                 </div>
 
 
                 <div class="small-img-container">
-                    <a href=""><img src="images/img2.png" alt=""></a>
+                    <a href=""><img src="/dokan/images/img2.png" alt=""></a>
                 </div>
 
                 <div class="small-img-container">
-                    <a href=""><img src="images/img2.png" alt=""></a>
+                    <a href=""><img src="/dokan/images/img2.png" alt=""></a>
                 </div>
 
                 <div class="small-img-container">
-                    <a href=""><img src="images/img2.png" alt=""></a>
+                    <a href=""><img src="/dokan/images/img2.png" alt=""></a>
                 </div>
             </div>
 
