@@ -51,7 +51,7 @@
     
       
         public function makeOrder($product_name, $quantity, $order_method, $fullname, $phone, $house_no, $region, $city, $street) {
-            $sql = "INSERT INTO tbl_order (product_name,quantity, order_method, fullname, phone, house_no, region, city, street) 
+            $sql = "INSERT INTO tbl_order (product_name,quantity, order_method, fullname, phone, email, region, city, street) 
                     VALUES ('$product_name', '$quantity', '$order_method', '$fullname', '$phone', '$house_no', '$region', '$city', '$street')";
             mysqli_query($this->conn, $sql);
             return true;

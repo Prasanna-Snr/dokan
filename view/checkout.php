@@ -23,9 +23,9 @@ include "../view/customer_navbar.php";
                 </div>
 
                 <div class="from-field ">
-                    <label for="house">House Number:</label>
-                    <input type="text" name="house" class="contact-input-field" id="house" 
-                    placeholder="1414">
+                    <label for="house">Email:</label>
+                    <input type="house" name="house" class="contact-input-field" id="house" 
+                    placeholder="Enter your email">
                     <span></span>
                 </div>
             </div>
@@ -114,11 +114,14 @@ include "../view/customer_navbar.php";
                 setSuccess(phone);
             }
 
-            // for house
-            if(houseValue==""){
-                setError(house,"Enter building/house");
-                isValid=false;
-            }else{
+            // for email
+            if (houseValue == "") {
+                setError(house, "email required");
+                isValid = false;
+            } else if (!isEmail(houseValue)) {
+                setError(house, "email is not valid");
+                isValid = false;
+            } else {
                 setSuccess(house);
             }
 
@@ -165,6 +168,11 @@ include "../view/customer_navbar.php";
             if(fullnameValue!="" && phoneValue!="" && houseValue!=""&& 
             regionValue!=""&&cityValue !=""&& streetValue!=""){
                 window.location.href="payment.html";
+            }
+
+            function isEmail(e) {
+            var reg = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+            return reg.test(e);
             }
     
      </script>

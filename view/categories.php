@@ -1,98 +1,61 @@
-<?php include "customer_navbar.php";?>
-     <!-- body container -->
-     <div class="body-container">
-        <div class="categories-section">
-            <div class="categories-list">
-                <p id="heading-category">CATEGORIES</p>
-                <hr class="custom-line">
-                <ul>
-                    <li><a href="#">Categories 1</a></li>
-                    <li><a href="#">Categories 2</a></li>
-                    <li><a href="#">Categories 3</a></li>
-                    <li><a href="#">Categories 4</a></li>
-                    <li><a href="#">Categories 5</a></li>
-                    <li><a href="#">Categories 6</a></li>
-                    <li><a href="#">Categories 7</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="image-section">
-            <div class="item-container">
-                <div class="items">
-                    <a href="product_detail.html" class="img-container">
-                        <img src="/dokan/images/img1.png" alt="">
-                    </a>
-                    <p id="title">Lorem ipsum dolor sit amet.</p>
-                    <div class="price-container">
-                        <p id="price">Rs.100.00</p>
-                        <a href="#" class="add-to-cart">Add to cart</a>
-                    </div>
-                </div>
+<?php
+include "customer_navbar.php";
+include "../model/dbcon.php"; 
+include "../model/categories_model.php"; 
 
-                <div class="items">
-                    <a href="product_detail.html" class="img-container">
-                        <img src="/dokan/images/img2.png" alt="">
-                    </a>
-                    <p id="title">Lorem ipsum dolor sit amet.</p>
-                    <div class="price-container">
-                        <p id="price">Rs.100.00</p>
-                        <a href="#" class="add-to-cart">Add to cart</a>
-                    </div>
-                </div>
+$list = new categoryCrudImpl();
+$category = $list->getAllCategories();
 
-                <div class="items">
-                    <a href="product_detail.html" class="img-container">
-                        <img src="/dokan/images/img4.png" alt="">
-                    </a>
-                    <p id="title">Lorem ipsum dolor sit amet.</p>
-                    <div class="price-container">
-                        <p id="price">Rs.100.00</p>
-                        <a href="#" class="add-to-cart">Add to cart</a>
-                    </div>
-                </div>
-            </div>
+// Get the selected category from the URL and first category if none is selected
+$selectedCategory = isset($_GET['category']) ? $_GET['category'] : $category[0];
 
+$items = [];
+if ($selectedCategory) {
+    $items = $list->getItemsByCategory($selectedCategory);
+}
+?>
 
-            <div class="item-container">
-                <div class="items">
-                    <a href="product_detail.html" class="img-container">
-                        <img src="/dokan/images/img5.png" alt="">
-                    </a>
-                    <p id="title">Lorem ipsum dolor sit amet.</p>
-                    <div class="price-container">
-                        <p id="price">Rs.100.00</p>
-                        <a href="" class="add-to-cart">Add to cart</a>
-                    </div>
-                </div>
-
-                <div class="items">
-                    <a href="product_detail.html" class="img-container">
-                        <img src="/dokan/images/img6.png" alt="">
-                    </a>
-                    <p id="title">Lorem ipsum dolor sit amet.</p>
-                    <div class="price-container">
-                        <p id="price">Rs.100.00</p>
-                        <a href="#" class="add-to-cart">Add to cart</a>
-                    </div>
-                </div>
-
-                <div class="items">
-                    <a href="product_detail.html" class="img-container">
-                        <img src="/dokan/images/img7.png" alt="">
-                    </a>
-                    <p id="title">Lorem ipsum dolor sit amet.</p>
-                    <div class="price-container">
-                        <p id="price">Rs.100.00</p>
-                        <a href="#" class="add-to-cart">Add to cart</a>
-                    </div>
-                </div>
-            </div>
+<!-- body container -->
+<div class="body-container">
+    <div class="categories-section">
+        <div class="categories-list">
+            <p id="heading-category">CATEGORIES</p>
+            <hr class="custom-line">
+            <ul>
+                <?php
+                foreach ($category as $categories) {
+                    $activeClass = ($categories == $selectedCategory) ? 'class="active"' : '';
+                    echo "<li><a href='?category={$categories}' {$activeClass}>{$categories}</a></li>";
+                }
+                ?>
+            </ul>
         </div>
     </div>
 
-    <!-- footer -->
-    <?php include "customer_footer.php";?>
+    <div class="image-section">
+        <div class="item-container">
+            <?php foreach ($items as $item) { ?>
+                <div class="items">
+                    <form action="../controller/cart_controller.php" method="POST">
+                    <a href="" class="img-container">
+                    <img src="<?= $item['image_path'] ?>" alt="">
+                    </a>
+                    <p id="title"><?php echo $item['name']; ?></p>
+                    <div class="price-container">
+                        <p id="price">Rs.<?php echo $item['price']; ?></p>
+                        <button type="submit" class="add-to-cart" name="add_to_cart">Add to cart</button>
+                    </div>
+                        <input type="hidden" name="product_name" value="<?=($item['name']) ?>">
+                        <input type="hidden" name="price" value="<?= $item['price'] ?>">
+                        <input type="hidden" name="image" value="<?=($item['image_path']) ?>">
+                </form>
+                </div>
+            <?php } ?>
+        </div>
+    </div>
+</div>
 
+<!-- footer -->
+<?php include "customer_footer.php";?>
 </body>
-
 </html>

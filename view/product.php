@@ -1,105 +1,59 @@
-<?php include "customer_navbar.php"; ?>
+<?php 
+include "../view/customer_navbar.php";
+include "../model/dbcon.php"; 
+include "../model/product_model.php"; 
+
+$obj = new ProductCrudImpl();
+$highPrice = $obj->highPriceProduct();
+$lowPrice = $obj->lowPriceProduct();
+ ?>
 
     <div class="product-main-container">
         <!-- first product -->
-        <p id="first-product">Lorem, ipsum dolor.</p>
-        <!-- firs row product -->
+        <p id="first-product">Premium priced item</p>
+        <!-- high cost  -->
         <div class="first-product-row">
+        <?php foreach ($highPrice as $highPriceItem) { ?>
             <div class="items">
-                <a href="product_detail.html" class="img-container">
-                    <img src="/dokan/images/img17.png" alt="">
-                </a>
-                <p id="title">Lorem ipsum dolor sit amet.</p>
+            <form action="../controller/cart_controller.php" method="POST">
+                    <a href="" class="img-container">
+                    <img src="<?= $highPriceItem['image_path'] ?>" alt="">
+                    </a>
+                    <p id="title"><?php echo $highPriceItem['name']; ?></p>
                 <div class="price-container">
-                    <p id="price">Rs.100.00</p>
-                    <a href="#" class="add-to-cart">Add to cart</a>
+                <p id="price">Rs.<?php echo $highPriceItem['price']; ?></p>
+                <button type="submit" class="add-to-cart" name="add_to_cart">Add to cart</button>
                 </div>
+                <input type="hidden" name="product_name" value="<?=($highPriceItem['name']) ?>">
+                        <input type="hidden" name="price" value="<?= $highPriceItem['price'] ?>">
+                        <input type="hidden" name="image" value="<?=($highPriceItem['image_path']) ?>">
+                </form>
             </div>
-
-            <div class="items">
-                <a href="product_detail.html" class="img-container">
-                    <img src="/dokan/images/img8.png" alt="">
-                </a>
-                <p id="title">Lorem ipsum dolor sit amet.</p>
-                <div class="price-container">
-                    <p id="price">Rs.100.00</p>
-                    <a href="#" class="add-to-cart">Add to cart</a>
-                </div>
-            </div>
-
-            <div class="items">
-                <a href="product_detail.html" class="img-container">
-                    <img src="/dokan/images/img15.png" alt="">
-                </a>
-                <p id="title">Lorem ipsum dolor sit amet.</p>
-                <div class="price-container">
-                    <p id="price">Rs.100.00</p>
-                    <a href="#" class="add-to-cart">Add to cart</a>
-                </div>
-            </div>
-
-            <div class="items">
-                <a href="product_detail.html" class="img-container">
-                    <img src="/dokan/images/img14.png" alt="">
-                </a>
-                <p id="title">Lorem ipsum dolor sit amet.</p>
-                <div class="price-container">
-                    <p id="price">Rs.100.00</p>
-                    <a href="#" class="add-to-cart">Add to cart</a>
-                </div>
-            </div>
-
+            <?php } ?>
         </div>
 
-        <p id="first-product">Lorem, ipsum dolor.</p>
+        <p id="first-product">Most affordable choice</p>
 
 
-        <!-- second row product -->
+        <!-- low cost -->
         <div class="first-product-row">
+        <?php foreach ($lowPrice as $lowPriceItem) { ?>
             <div class="items">
-                <a href="product_detail.html" class="img-container">
-                    <img src="/dokan/images/img13.png" alt="">
-                </a>
-                <p id="title">Lorem ipsum dolor sit amet.</p>
+            <form action="../controller/cart_controller.php" method="POST">
+                    <a href="" class="img-container">
+                    <img src="<?= $lowPriceItem['image_path'] ?>" alt="">
+                    </a>
+                    <p id="title"><?php echo $lowPriceItem['name']; ?></p>
                 <div class="price-container">
-                    <p id="price">Rs.100.00</p>
-                    <a href="#" class="add-to-cart">Add to cart</a>
+                <p id="price">Rs.<?php echo $lowPriceItem['price']; ?></p>
+                <button type="submit" class="add-to-cart" name="add_to_cart">Add to cart</button>
                 </div>
+                <input type="hidden" name="product_name" value="<?=($lowPriceItem['name']) ?>">
+                        <input type="hidden" name="price" value="<?= $lowPriceItem['price'] ?>">
+                        <input type="hidden" name="image" value="<?=($lowPriceItem['image_path']) ?>">
+                </form>
             </div>
-
-            <div class="items">
-                <a href="product_detail.html" class="img-container">
-                    <img src="/dokan/images/img12.png" alt="">
-                </a>
-                <p id="title">Lorem ipsum dolor sit amet.</p>
-                <div class="price-container">
-                    <p id="price">Rs.100.00</p>
-                    <a href="#" class="add-to-cart">Add to cart</a>
-                </div>
-            </div>
-
-            <div class="items">
-                <a href="product_detail.html" class="img-container">
-                    <img src="/dokan/images/img11.png" alt="">
-                </a>
-                <p id="title">Lorem ipsum dolor sit amet.</p>
-                <div class="price-container">
-                    <p id="price">Rs.100.00</p>
-                    <a href="#" class="add-to-cart">Add to cart</a>
-                </div>
-            </div>
-
-            <div class="items">
-                <a href="product_detail.html" class="img-container">
-                    <img src="/dokan/images/img10.png" alt="">
-                </a>
-                <p id="title">Lorem ipsum dolor sit amet.</p>
-                <div class="price-container">
-                    <p id="price">Rs.100.00</p>
-                    <a href="#" class="add-to-cart">Add to cart</a>
-                </div>
-            </div>
-
+            <?php } ?>
         </div>
 
 

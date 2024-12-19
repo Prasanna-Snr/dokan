@@ -10,7 +10,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
             if(in_array($_POST['product_name'],$myItems)){
                 echo "<script> 
                 alert('product already added');
-                window.location.href='../view/home.php';
+                  window.location.href = document.referrer || 'defaultPage.php';
                 </script>";
             }else{
             
@@ -18,14 +18,14 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
             $count= count($_SESSION['cart']);
             $_SESSION['cart'][$count]=array('product_name'=>$_POST['product_name'],'image'=>$_POST['image'], 'price'=>$_POST['price'],'quantity'=>1);
             echo "<script> 
-            window.location.href='../view/home.php';
+              window.location.href = document.referrer || 'defaultPage.php';
             </script>";
             }
         }else
         {
             $_SESSION['cart'][0]=array('product_name'=>$_POST['product_name'], 'image'=>$_POST['image'],'price'=>$_POST['price'],'quantity'=>1);
             echo "<script> 
-            window.location.href='../view/home.php';
+              window.location.href = document.referrer || 'defaultPage.php';
             </script>";
             
         }
