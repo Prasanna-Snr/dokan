@@ -16,7 +16,7 @@ $lowPrice = $obj->lowPriceProduct();
         <?php foreach ($highPrice as $highPriceItem) { ?>
             <div class="items">
             <form action="../controller/cart_controller.php" method="POST">
-                    <a href="" class="img-container">
+                    <a href="product_detail.php?id=<?= $highPriceItem['id'] ?>" class="img-container">
                     <img src="<?= $highPriceItem['image_path'] ?>" alt="">
                     </a>
                     <p id="title"><?php echo $highPriceItem['name']; ?></p>
@@ -27,6 +27,7 @@ $lowPrice = $obj->lowPriceProduct();
                 <input type="hidden" name="product_name" value="<?=($highPriceItem['name']) ?>">
                         <input type="hidden" name="price" value="<?= $highPriceItem['price'] ?>">
                         <input type="hidden" name="image" value="<?=($highPriceItem['image_path']) ?>">
+                        <input type="hidden" name="product_id" value="<?=($highPriceItem['id']) ?>">
                 </form>
             </div>
             <?php } ?>
@@ -40,7 +41,7 @@ $lowPrice = $obj->lowPriceProduct();
         <?php foreach ($lowPrice as $lowPriceItem) { ?>
             <div class="items">
             <form action="../controller/cart_controller.php" method="POST">
-                    <a href="" class="img-container">
+                    <a href="product_detail.php?id=<?= $lowPriceItem['id'] ?>" class="img-container">
                     <img src="<?= $lowPriceItem['image_path'] ?>" alt="">
                     </a>
                     <p id="title"><?php echo $lowPriceItem['name']; ?></p>
@@ -51,6 +52,7 @@ $lowPrice = $obj->lowPriceProduct();
                 <input type="hidden" name="product_name" value="<?=($lowPriceItem['name']) ?>">
                         <input type="hidden" name="price" value="<?= $lowPriceItem['price'] ?>">
                         <input type="hidden" name="image" value="<?=($lowPriceItem['image_path']) ?>">
+                        <input type="hidden" name="product_id" value="<?=($lowPriceItem['id']) ?>">
                 </form>
             </div>
             <?php } ?>

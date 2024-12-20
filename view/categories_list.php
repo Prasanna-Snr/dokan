@@ -19,7 +19,7 @@ include "admin_navbar.php";?>
                     <li><a href="customer_list.php">Customer</a></li>
                     <li><a href="product_list.php">Product</a></li>
                     <li><a href="categories_list.php">Categories</a></li>
-                    <li><a href="#">Order</a></li>
+                    <li><a href="order_list.php">Order</a></li>
                     <li><a href="#">Setting</a></li>
                     <li><a href="#">Profile</a></li>
                 </ul>

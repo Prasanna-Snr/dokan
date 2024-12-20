@@ -1,5 +1,6 @@
 <?php 
 include "customer_navbar.php";
+$user_id = $_SESSION['user_login'];
 ?>
 <!-- Payment Heading -->
 <p id="delivery-info-heading">Select payment method</p>
@@ -28,6 +29,7 @@ include "customer_navbar.php";
         </div>
     </button>
     <input type="hidden" value="cash on delivery" name="p-method">
+    <input type="hidden" name="user_id" value="<?= $user_id ?>">
     </form>
 </div>
 
@@ -66,13 +68,14 @@ include "customer_navbar.php";
         <form action="../controller/order_controller.php" method="POST">
             <button id="cod-button" name="make-order">OK</button>
             <input type="hidden" name="pm" value="cash on delivery">
+            <input type="hidden" name="user_id" value="<?= $user_id ?>">
         </form>
     </div>
 </div>
 
 <div class="popup" id="thank-you-popup" style="display: none;">
     <p id="first-product">Thank you</p>
-    <p>We’ll call you in 30 minutes, you can check new post in our website dokan.com</p>
+    <p>We will call you in 30 minutes, you can check new post in our website dokan.com</p>
     <button id="close-popup">OK</button>
 </div>
 

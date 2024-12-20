@@ -71,6 +71,7 @@ $offerProduct = $offer->getOfferProduct();
                         <input type="hidden" name="product_name" value="<?=($product['name']) ?>">
                         <input type="hidden" name="price" value="<?= $product['price'] ?>">
                         <input type="hidden" name="image" value="<?=($product['image_path']) ?>">
+                        <input type="hidden" name="product_id" value="<?=($product['id']) ?>">
                     </form>
                 </div>
                 <?php 
@@ -118,6 +119,7 @@ $offerProduct = $offer->getOfferProduct();
                         <input type="hidden" name="product_name" value="<?= $offerItem['name'] ?>">
                         <input type="hidden" name="price" value="<?= $offerItem['price'] ?>">
                         <input type="hidden" name="image" value="<?= $offerItem['image_path'] ?>">
+                        <input type="hidden" name="product_id" value="<?=($offerItem['id']) ?>">
                     </form>
                 </div>
             </div>

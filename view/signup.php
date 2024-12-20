@@ -12,7 +12,7 @@
     <p id="login-txt">Sign Up</p>
     <div class="login-container">
         <div class="login-box">
-            <form action="../controller/admin_signup_controller.php" method="POST">	
+            <form action="../controller/customer_controller.php" method="POST">	
                 <div class="from-field">
                     <label for="fullname">Fullname:</label>
                     <input type="text" name="fullname" id="fullname" class="contact-input-field" placeholder="Fullname">
@@ -43,7 +43,7 @@
                     <span></span>
                 </div>
 
-                <button class="btn-login" id="submit" name="submit">Sign up</button>
+                <button class="btn-login" id="submit" name="sign-up">Sign up</button>
             </form>
             <p>Already have an account? <a href="login.php" id="sign-up-txt">Login</a></p>
         </div>

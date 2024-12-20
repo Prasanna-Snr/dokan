@@ -11,7 +11,7 @@
     <p id="login-txt">login</p>
     <div class="login-container">
         <div class="login-box">
-            <form action="../controller/admin_login_controller.php" method="POST">
+            <form action="../controller/customer_controller.php" method="POST">
                 <div class="from-field ">
                     <label for="email">Email:</label>
                     <input type="email" name="email" class="contact-input-field" id="email" placeholder="Email">
@@ -24,7 +24,7 @@
                     <span></span>
                 </div>
 
-                <button class="btn-login" id="submit" name="submit">Login</button>                
+                <button class="btn-login" id="submit" name="login">Login</button>                
             </form>
             <p>don't have an account? <a href="signUp.php" id="sign-up-txt">Sign Up</a></p>
         </div>

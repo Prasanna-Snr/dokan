@@ -19,6 +19,7 @@ interface AdminCrud{
     public function getTotalCustomers();
     public function getTotalProducts();
     public function getTotalCategories();
+    public function getTotalOrder();
 }
 
 // implementation of interface
@@ -75,6 +76,13 @@ class AdminCrudImpl implements AdminCrud{
         $result = mysqli_query($this->conn, $query);
         $row = mysqli_fetch_assoc($result);
         return $row['total_categories'];
+    }
+
+    public function getTotalOrder() {
+        $query = "SELECT COUNT(*) AS total_order FROM tbl_order";
+        $result = mysqli_query($this->conn, $query);
+        $row = mysqli_fetch_assoc($result);
+        return $row['total_order'];
     }
 }
 ?>

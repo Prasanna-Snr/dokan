@@ -1,5 +1,6 @@
 <?php 
 session_start();
+include "../model/dbcon.php"
 ?>
 
 <!DOCTYPE html>
@@ -11,7 +12,6 @@ session_start();
     <title>dokan</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-
 </head>
 
 <body>
@@ -30,24 +30,42 @@ session_start();
         </nav>
         <div class="search-cart-container">
             <div class="search">
-                <input type="text" placeholder="Serach here...">
+                <input type="text" placeholder="Search here...">
                 <i class="fa fa-search"></i>
             </div>
 
             <?php 
-            $count =0;
-            if(isset($_SESSION['cart'])){
+            $count = 0;
+            if (isset($_SESSION['cart'])) {
                 $count = count($_SESSION['cart']);
             }
             ?>
 
-                <a href="/dokan/view/cart.php" class="cart" onclick="return checkCart(<?php echo $count; ?>);">
+            <a href="/dokan/view/cart.php" class="cart" onclick="return checkCart(<?php echo $count; ?>);">
                 <span>Your cart <?php echo $count ?></span>
                 <i class="fa fa-shopping-cart"></i>
             </a>
-
         </div>
 
+        <?php 
+            if (isset($_SESSION['user_login'])) {
+                $userId = $_SESSION['user_login'];
+                $query = "SELECT username FROM tbl_customer WHERE id = $userId";
+                $result = mysqli_query($conn, $query);
+                $username = ""; 
+                if ($result) {
+                    $row = mysqli_fetch_assoc($result);
+                    if ($row) {
+                        $username = $row['username'];
+                    }
+                }
+                echo '<a href="customer_dashboard.php" class="profile-customer">'.$username. '</a>';
+            } else {
+                // Show login/register options if not logged in
+                echo '<a href="login.php" class="profile-customer">Login</a>';
+                echo '<a href="signup.php" class="profile-customer">Register</a>';
+            }
+            ?>
     </div>
 
     <script>
@@ -59,3 +77,5 @@ session_start();
             return true; 
         }
     </script>
+</body>
+</html>

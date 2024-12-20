@@ -37,7 +37,7 @@ if ($selectedCategory) {
             <?php foreach ($items as $item) { ?>
                 <div class="items">
                     <form action="../controller/cart_controller.php" method="POST">
-                    <a href="" class="img-container">
+                    <a href="product_detail.php?id=<?= $item['id'] ?>" class="img-container">
                     <img src="<?= $item['image_path'] ?>" alt="">
                     </a>
                     <p id="title"><?php echo $item['name']; ?></p>
@@ -48,6 +48,7 @@ if ($selectedCategory) {
                         <input type="hidden" name="product_name" value="<?=($item['name']) ?>">
                         <input type="hidden" name="price" value="<?= $item['price'] ?>">
                         <input type="hidden" name="image" value="<?=($item['image_path']) ?>">
+                        <input type="hidden" name="product_id" value="<?=($item['id']) ?>">
                 </form>
                 </div>
             <?php } ?>

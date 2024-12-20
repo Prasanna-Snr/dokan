@@ -37,7 +37,7 @@
     }
 
     interface OrderCrud {
-        public function makeOrder($product_name, $quantity, $order_method, $fullname, $phone, $house_no, $region, $city, $street);
+        public function makeOrder($product_name, $quantity, $order_method, $fullname, $phone, $house_no, $region, $city, $street,$customer_id,$product_id);
     }
 
 
@@ -50,9 +50,9 @@
         }
     
       
-        public function makeOrder($product_name, $quantity, $order_method, $fullname, $phone, $house_no, $region, $city, $street) {
-            $sql = "INSERT INTO tbl_order (product_name,quantity, order_method, fullname, phone, email, region, city, street) 
-                    VALUES ('$product_name', '$quantity', '$order_method', '$fullname', '$phone', '$house_no', '$region', '$city', '$street')";
+        public function makeOrder($product_name, $quantity, $order_method, $fullname, $phone, $house_no, $region, $city, $street,$customer_id,$product_id) {
+            $sql = "INSERT INTO tbl_order (product_name,quantity, order_method, fullname, phone, email, region, city, street,customer_id,product_id) 
+                    VALUES ('$product_name', '$quantity', '$order_method', '$fullname', '$phone', '$house_no', '$region', '$city', '$street', '$customer_id', '$product_id')";
             mysqli_query($this->conn, $sql);
             return true;
         }

@@ -4,6 +4,8 @@ $obj = new AdminCrudImpl();
 $total_customer = $obj->getTotalCustomers();
 $total = $obj->getTotalProducts();
 $total_categories = $obj->getTotalCategories();
+$order = $obj->getTotalOrder();
+
 ?>
 
 <?php include "admin_navbar.php";?>
@@ -21,7 +23,7 @@ $total_categories = $obj->getTotalCategories();
                 <li><a href="customer_list.php">Customer</a></li>
                 <li><a href="product_list.php">Product</a></li>
                 <li><a href="categories_list.php">Categories</a></li>
-                <li><a href="#">Order</a></li>
+                <li><a href="order_list.php">Order</a></li>
                 <li><a href="#">Setting</a></li>
                 <li><a href="#">Profile</a></li>
               
@@ -54,7 +56,7 @@ $total_categories = $obj->getTotalCategories();
 
             <a href="" class="admin-items">
                 <div class="min-container">
-                    <span id="no">80</span>
+                    <span id="no"><?php echo $order?></span>
                     <p id="min-text">Order Management</p>
                 </div>
             </a>

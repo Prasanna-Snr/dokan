@@ -57,10 +57,20 @@ session_start();
             <button class="cart-checkout-btn" onclick="checkout()">Checkout</button>
         </div>
     </div>
+    <button class="back-cart" onclick="goback()">back</button>
 
     <script>
-        function checkout(){
-         window.location.href="checkout.php"
+        function checkout() {
+        <?php if (empty($_SESSION['cart'])): ?>
+            alert("Your cart is empty. Please add items before proceeding to checkout.");
+        <?php else: ?>
+            window.location.href = "checkout.php";
+        <?php endif; ?>
+        }
+
+        
+        function goback(){
+            window.history.back();
         }
 
         var pprice = document.getElementsByClassName('pprice');

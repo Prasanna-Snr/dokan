@@ -21,6 +21,7 @@ if(isset($_POST['submit'])){
 
 if(isset($_POST['make-order'])){
     $pm = $_POST['p-method'];
+    $customer_id =$_POST['user_id'];
     
     // delivery info
     $deliveryInfo = $_SESSION['deliveryInfo'];
@@ -38,9 +39,10 @@ if(isset($_POST['make-order'])){
         $image = $item['image'];
         $price = $item['price'];
         $quantity = $item['quantity'];
+        $product_id=$item['product_id'];
 
         $obj = new OrderCrudImpl();
-        $makeOrderResult = $obj->makeOrder($productName, $quantity, $pm, $fullname, $phone, $house, $region, $city, $street);
+        $makeOrderResult = $obj->makeOrder($productName, $quantity, $pm, $fullname, $phone, $house, $region, $city, $street,$customer_id,$product_id);
     }
 
     unset($_SESSION['cart']);

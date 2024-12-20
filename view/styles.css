@@ -14,7 +14,7 @@
   width: 100%;
   height: 70px;
   justify-content: space-between;
-  padding-right: 100px;
+  padding-right: 50px;
 }
 
 .logo-img {
@@ -254,9 +254,7 @@ nav ul li a:hover::after {
   width: 250px;
   background-color: rgb(228, 228, 228);
   position: relative;
-  /* Makes the container the reference point for absolute positioning */
-
-
+  
 }
 
 
@@ -297,7 +295,7 @@ nav ul li a:hover::after {
 }
 
 .price-container {
-  width: 250px;
+  width: 245px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -828,7 +826,8 @@ nav ul li a:hover::after {
   transition: background-color 0.7s, color 0.3s;
 }
 
-#add-to-cart:hover {
+
+.detail-add-to-cart:hover {
   background-color: white;
   color: black;
   border: 1px solid black;
@@ -1124,9 +1123,6 @@ table {
 th,
 td {
   border: 1px solid black;
-  padding: 8px;
-  text-align: left;
-  font-size: 20px;
   text-align: center;
 }
 
@@ -1359,6 +1355,27 @@ td {
   padding: 10px 20px;
   border: none;
   cursor: pointer;
+  width: 160px;
+}
+
+.back-cart{
+  width: 230px;
+  height: 30px;
+  font-size: 16px;
+  border: none;
+  background-color: black;
+  color: white;
+  margin-top: 30px;
+  cursor: pointer;
+  transition: background-color 0.7s, color 0.3s;
+  margin-left: 190px;
+  margin-bottom: 50px;
+}
+
+.back-cart:hover{
+  background-color: white;
+  color: black;
+  border: 1px solid black;
 }
 
 /* -----------login form validation css--------------- */
@@ -1706,3 +1723,101 @@ td {
   border: none;
   font-size: 18px;
 }
+
+.profile-customer{
+  color: white;
+  text-decoration: none;
+}
+
+/* -------------------------------customer dashboard------------------- */
+.customer-list {
+  background-color: #f1f1f1;
+  height: 100%;
+  width: 220px;
+  padding-left: 30px;
+  padding-right: 20px;
+  padding-top: 20px;
+  position: fixed;
+}
+
+
+.customer-list ul {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  list-style: none;
+}
+
+.customer-list ul li a {
+  text-decoration: none;
+  font-size: large;
+  text-align: center;
+  font-weight: 100;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #555;
+  border: 1px solid transparent;
+  transition: font-weight 0.3s ease, color 0.3s ease;
+}
+
+.customer-list ul li a:hover {
+  color: #000;
+  font-weight: 400;
+}
+
+
+.c-body-container {
+  display: flex;
+}
+
+.c-categories-section {
+  flex: 2;
+
+}
+
+.c-image-section {
+  margin-top: 30px;
+  flex: 7;
+  height: auto;
+  padding-left: 50px;
+  padding-right: 70px;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.c-img-container {
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+ width: 100px;
+  background-color: rgb(228, 228, 228);
+  position: relative;
+  
+}
+
+
+
+.c-img-container img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+}
+
+.c-item-container {
+  display: flex;
+  justify-content: flex-start;
+  gap: 30px;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+
+#order-status{
+padding-left: 12px;
+padding-right: 18px;
+  font-size: 16px;
+  background-color: black;
+  color: white;
+}
+
