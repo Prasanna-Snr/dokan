@@ -39,6 +39,7 @@ interface ProductCrud{
     public function getOfferProduct();
     public function highPriceProduct();
     public function lowPriceProduct();
+    public function getById($id);
 
 }
 
@@ -105,6 +106,12 @@ class ProductCrudImpl implements ProductCrud{
 
     public function lowPriceProduct(){
         $query = "SELECT * FROM tbl_product WHERE price < 100";
+        $result = mysqli_query($this->conn, $query);
+        return $result;
+    }
+
+    public function getById($id) {
+        $query = "SELECT * FROM tbl_product WHERE id = $id";
         $result = mysqli_query($this->conn, $query);
         return $result;
     }
