@@ -1,14 +1,20 @@
 <?php
+include "admin_navbar.php";
 include "../model/admin_model.php";
+
+if (!isset($_SESSION['admin_login'])) {
+    header("Location: login_admin.php");
+}
+
+
+
 $obj = new AdminCrudImpl();
 $total_customer = $obj->getTotalCustomers();
 $total = $obj->getTotalProducts();
 $total_categories = $obj->getTotalCategories();
 $order = $obj->getTotalOrder();
-
 ?>
 
-<?php include "admin_navbar.php";?>
 <!-- items list container -->
 <div class="body-container">
     <div class="categories-section">
@@ -24,8 +30,8 @@ $order = $obj->getTotalOrder();
                 <li><a href="product_list.php">Product</a></li>
                 <li><a href="categories_list.php">Categories</a></li>
                 <li><a href="order_list.php">Order</a></li>
-                <li><a href="#">Setting</a></li>
-                <li><a href="#">Profile</a></li>
+                <li><a href="ad_profile.php">Profile</a></li>
+                <li><a href="ad_logout.php">Logout</a></li>
               
             </ul>
         </div>
@@ -54,7 +60,7 @@ $order = $obj->getTotalOrder();
                 </div>
             </a>
 
-            <a href="" class="admin-items">
+            <a href="order_list.php" class="admin-items">
                 <div class="min-container">
                     <span id="no"><?php echo $order?></span>
                     <p id="min-text">Order Management</p>

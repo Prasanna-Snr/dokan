@@ -49,7 +49,7 @@ if(isset($_POST['make-order'])){
     unset($_SESSION['deliveryInfo']);
     unset($_SESSION['pm']);
 
-    header("Location: ../view/home.php");
+    header("Location: ../view/customer_dashboard.php");
 }
 
 ?>

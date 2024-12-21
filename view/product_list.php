@@ -1,5 +1,4 @@
 <?php
-session_start();
 include "../model/admin_model.php";
 $sql = "SELECT id,name,image_path,price FROM tbl_product";
 $res = mysqli_query($conn, $sql);
@@ -20,8 +19,8 @@ include "admin_navbar.php";?>
                     <li><a href="product_list.php">Product</a></li>
                     <li><a href="categories_list.php">Categories</a></li>
                     <li><a href="order_list.php">Order</a></li>
-                    <li><a href="#">Setting</a></li>
-                    <li><a href="#">Profile</a></li>
+                    <li><a href="ad_profile.php">Profile</a></li>
+                    <li><a href="ad_logout.php">Logout</a></li>
                 </ul>
             </div>
         </div>

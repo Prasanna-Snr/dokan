@@ -1,5 +1,8 @@
 <?php 
 include "../view/customer_navbar.php";
+if (!isset($_SESSION['user_login'])) {
+    header("Location: login.php");
+}
 ?>
     <p id="delivery-info-heading">Delivery Information</p>
 

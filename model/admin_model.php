@@ -47,7 +47,7 @@ class AdminCrudImpl implements AdminCrud{
         $result = mysqli_query($this->conn, $query);
             while($row = mysqli_fetch_assoc($result)) {
                 if($email == $row['email'] && $hashPwd == $row['password']) {
-                    $_SESSION['user_login'] = $row['id'];
+                    $_SESSION['admin_login'] = $row['id'];
                     return true; 
                 }
             }

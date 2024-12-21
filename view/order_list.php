@@ -1,15 +1,19 @@
 <?php
-session_start();
+include "admin_navbar.php";
 include "../model/admin_model.php";
 
-// Update the SQL query to include JOINs
+if (!isset($_SESSION['admin_login'])) {
+    header("Location: login_admin.php");
+}
+
+// Update the SQL query to include join
 $sql = "SELECT o.id, c.fullname AS customer_name, p.name AS product_name, o.quantity, o.order_method, o.region, o.city, o.street, o.phone, o.order_at
         FROM tbl_order o
         JOIN tbl_customer c ON o.customer_id = c.id
         JOIN tbl_product p ON o.product_id = p.id";
 $res = mysqli_query($conn, $sql);
 
-include "admin_navbar.php";?>
+?>
 <!-- items list container -->
 <div class="product-manage-container">
     <div class="categories-section">
@@ -25,8 +29,8 @@ include "admin_navbar.php";?>
                 <li><a href="product_list.php">Product</a></li>
                 <li><a href="categories_list.php">Categories</a></li>
                 <li><a href="order_list.php">Order</a></li>
-                <li><a href="#">Setting</a></li>
-                <li><a href="#">Profile</a></li>
+                <li><a href="ad_profile.php">Profile</a></li>
+                <li><a href="ad_logout.php">Logout</a></li>
             </ul>
         </div>
     </div>

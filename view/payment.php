@@ -1,5 +1,8 @@
 <?php 
 include "customer_navbar.php";
+if (!isset($_SESSION['user_login'])) {
+    header("Location: login.php");
+}
 $user_id = $_SESSION['user_login'];
 ?>
 <!-- Payment Heading -->

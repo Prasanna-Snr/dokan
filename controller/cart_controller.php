@@ -4,18 +4,6 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
 {
     if(isset($_POST['add_to_cart']))
     {
-
-
-        // Check if the user is logged in
-        if (!isset($_SESSION['user_login'])) {
-            echo "<script>
-                alert('You must log in to add items to the cart.');
-                window.location.href = '../view/login.php';
-            </script>";
-            exit;
-        }
-
-
         if(isset($_SESSION['cart']))
         {
             $myItems = array_column($_SESSION['cart'],'product_name');

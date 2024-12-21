@@ -2,6 +2,10 @@
 include "../view/customer_navbar.php";
 include "../model/dbcon.php"; 
 
+if (!isset($_SESSION['user_login'])) {
+    header("Location: login.php");
+}
+
 $customerId = (int)$_SESSION['user_login']; 
 $query = "SELECT tbl_order.product_name, tbl_order.id, tbl_product.image_path 
           FROM tbl_order 

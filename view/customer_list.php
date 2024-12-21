@@ -1,10 +1,15 @@
 <?php
-session_start();
+include "admin_navbar.php";
 include "../model/admin_model.php";
+
+if (!isset($_SESSION['admin_login'])) {
+    header("Location: login_admin.php");
+}
+
 $sql = "SELECT id,fullname,username,email FROM tbl_customer";
 $res = mysqli_query($conn, $sql);
+?>
 
-include "admin_navbar.php";?>
 <!-- items list container -->
 <div class="product-manage-container">
         <div class="categories-section">
@@ -19,9 +24,9 @@ include "admin_navbar.php";?>
                     <li><a href="#">Customer</a></li>
                     <li><a href="product_list.php">Product</a></li>
                     <li><a href="categories_list.php">Categories</a></li>
-                    <li><a href="#">Order</a></li>
-                    <li><a href="#">Setting</a></li>
-                    <li><a href="#">Profile</a></li>
+                    <li><a href="order_list.php">Order</a></li>
+                    <li><a href="ad_profile.php">Profile</a></li>
+                    <li><a href="ad_logout.php">Logout</a></li>
                 </ul>
             </div>
         </div>
