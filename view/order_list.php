@@ -50,13 +50,14 @@ $res = mysqli_query($conn, $sql);
                         <th>Id</th>
                         <th>Customer</th>
                         <th>Product</th>
-                        <th>Quantity</th>
+                        <th>Qty</th>
                         <th>Payment Method</th>
                         <th>Region</th>
                         <th>City</th>
                         <th>Street</th>
                         <th>Phone</th>
                         <th>Order Time</th>
+                        <th>Order <br>Status</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -72,6 +73,14 @@ $res = mysqli_query($conn, $sql);
                         <td><?php echo $row['street']; ?></td>
                         <td><?php echo $row['phone']; ?></td>
                         <td><?php echo $row['order_at']; ?></td>
+                        <td>
+                            <select name="" id="" class="select-order-status">
+                                <option value="">Ordered</option>
+                                <option value="">Dispatched</option>
+                                <option value="">Delivered</option>
+                                <option value="">Completed</option>
+                            </select>
+                        </td>
                     </tr>
                     <?php endwhile; ?>
                 </tbody>

@@ -3,6 +3,11 @@
 include "admin_navbar.php";
 include "../model/dbcon.php";
 
+if (!isset($_SESSION['admin_login'])) {
+    header("Location: login_admin.php");
+}
+
+
 $sql = "SELECT id, c_name FROM tbl_categories";
 $result = $conn->query($sql);
 ?>

@@ -1,5 +1,9 @@
-
-<?php include "admin_navbar.php";?>
+<?php 
+include "admin_navbar.php";
+if (!isset($_SESSION['admin_login'])) {
+    header("Location: login_admin.php");
+}
+?>
     <div class="admin-product-form-container">
         <h1 class="admin-product-form-header">Add Categories</h1>
         <form class="admin-product-form" action="../controller/categories_controller.php" method="POST">

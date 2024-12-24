@@ -2,7 +2,7 @@
 include "admin_navbar.php";
 include "../model/admin_model.php";
 
-if (!isset($_SESSION['admin_login'])) {
+if (!isset($_SESSION['admin_login']) && $_SESSION['admin_login'] == false) {
     header("Location: login_admin.php");
 }
 

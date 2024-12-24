@@ -1,9 +1,9 @@
 <?php 
 session_start();
 include "../model/dbcon.php";
-if (!isset($_SESSION['user_login'])) {
-    header("Location: login.php");
-}
+// if (!isset($_SESSION['user_login'])) {
+//     header("Location: login.php");
+// }
 ?>
 
 <!DOCTYPE html>

@@ -58,7 +58,7 @@ include "admin_navbar.php";?>
                             <img src="<?php echo $row['image_path']; ?>" alt="<?php echo $row['name']; ?>">
                         </div>
                     </td>
-                    <td><?php  echo "RS: ". $row['price']; ?></td>
+                    <td><?php  echo "Rs: ". $row['price']; ?></td>
                     <td>
                         <a href="/dokan/view/edit_product.php?id=<?php echo $row['id'];?>" id="product-edit">Edit</a>
                         <a href="/dokan/controller/product_controller.php?id=<?php echo $row['id'];?>" id="product-delete">Delete</a>
