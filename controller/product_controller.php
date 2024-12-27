@@ -10,6 +10,7 @@ if (isset($_POST['submit'])) {
     $price = $_POST['price-input'];
     $offer = $_POST['offer'] ?? 0;
     $discount = $_POST['discount'] ?? 0;
+    $quantity = $_POST['quantity'];
 
     // Handle file upload (image)
     $file_path = null;
@@ -53,7 +54,7 @@ if (isset($_POST['submit'])) {
     }
 
     $obj=new ProductCrudImpl();
-    $addProductResult = $obj->addProduct($name,$category,$file_path,$description,$price,$offer,$discount);
+    $addProductResult = $obj->addProduct($name,$category,$file_path,$description,$price,$offer,$discount,$quantity);
     if($addProductResult){
         header("Location: ../view/product_list.php");
     }
@@ -70,6 +71,7 @@ if (isset($_POST['update'])) {
     $price = $_POST['price-input'];
     $offer = $_POST['offer'] ?? 0;
     $discount = $_POST['discount'] ?? 0;
+    $quantity = $_POST['quantity'];
 
     // Handle file upload (optional image update)
     $file_path = $_POST['current_image']; 
@@ -107,7 +109,7 @@ if (isset($_POST['update'])) {
     }
 
     $obj = new ProductCrudImpl();
-    $updateResult = $obj->updateProduct($id, $name, $category, $file_path, $description, $price, $offer, $discount);
+    $updateResult = $obj->updateProduct($id, $name, $category, $file_path, $description, $price, $offer, $discount,$quantity);
     if ($updateResult) {
         header("Location: ../view/product_list.php");
     } else {

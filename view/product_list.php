@@ -1,6 +1,6 @@
 <?php
 include "../model/admin_model.php";
-$sql = "SELECT id,name,image_path,price FROM tbl_product";
+$sql = "SELECT id,name,image_path,price,quantity FROM tbl_product";
 $res = mysqli_query($conn, $sql);
 
 include "admin_navbar.php";?>
@@ -20,6 +20,7 @@ include "admin_navbar.php";?>
                     <li><a href="categories_list.php">Categories</a></li>
                     <li><a href="order_list.php">Order</a></li>
                     <li><a href="ad_profile.php">Profile</a></li>
+                    <li><a href="hero_section.php">Hero Section</a></li>
                     <li><a href="ad_logout.php">Logout</a></li>
                 </ul>
             </div>
@@ -45,6 +46,7 @@ include "admin_navbar.php";?>
                     <th>Product Name</th>
                     <th>Image</th>
                     <th>Price</th>
+                    <th>Quantity</th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -59,6 +61,7 @@ include "admin_navbar.php";?>
                         </div>
                     </td>
                     <td><?php  echo "Rs: ". $row['price']; ?></td>
+                    <td><?php echo $row['quantity']; ?></td>
                     <td>
                         <a href="/dokan/view/edit_product.php?id=<?php echo $row['id'];?>" id="product-edit">Edit</a>
                         <a href="/dokan/controller/product_controller.php?id=<?php echo $row['id'];?>" id="product-delete">Delete</a>

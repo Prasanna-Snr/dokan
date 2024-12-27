@@ -8,6 +8,7 @@ class Product {
     public int $offer;
     public int $discount;
     public string $created_at;
+    public int $quantity;
 
     public function __construct(
         string $name="",
@@ -17,7 +18,8 @@ class Product {
         int $price=0,
         int $offer = 0,
         int $discount = 0,
-        string $created_at = ''
+        string $created_at = '',
+        int $quantity=1
     ) {
         $this->name = $name;
         $this->category = $category;
@@ -27,14 +29,15 @@ class Product {
         $this->offer = $offer;
         $this->discount = $discount;
         $this->created_at = $created_at ?: date("Y-m-d H:i:s");
+        $this->quantity= $quantity;
     }
 }
 
 
 interface ProductCrud{
-    public function addProduct($name,$category,$file_path,$description,$price,$offer,$discount);
+    public function addProduct($name,$category,$file_path,$description,$price,$offer,$discount, $quantity);
     public function deleteProduct($id);
-    public function updateProduct($id, $name, $category, $file_path, $description, $price, $offer, $discount);
+    public function updateProduct($id, $name, $category, $file_path, $description, $price, $offer, $discount, $quantity);
     public function getAllProduct();
     public function getOfferProduct();
     public function highPriceProduct();
@@ -53,9 +56,9 @@ class ProductCrudImpl implements ProductCrud{
 
 
 
-    public function addProduct($name,$category,$file_path,$description,$price,$offer,$discount){
-        $sql = "INSERT INTO tbl_product (name, category, image_path, description, price, offer, discount) 
-        VALUES ('$name', '$category', '$file_path', '$description', '$price', '$offer', '$discount')";
+    public function addProduct($name,$category,$file_path,$description,$price,$offer,$discount,$quantity){
+        $sql = "INSERT INTO tbl_product (name, category, image_path, description, price, offer, discount,quantity) 
+        VALUES ('$name', '$category', '$file_path', '$description', '$price', '$offer', '$discount','$quantity')";
         $result = mysqli_query($this->conn, $sql);
         return true;
     }
@@ -69,7 +72,7 @@ class ProductCrudImpl implements ProductCrud{
 
 
 
-    public function updateProduct($id, $name, $category, $file_path, $description, $price, $offer, $discount) {
+    public function updateProduct($id, $name, $category, $file_path, $description, $price, $offer, $discount,$quantity) {
         $sql = "UPDATE tbl_product 
                 SET name='$name', 
                     category='$category', 
@@ -77,7 +80,8 @@ class ProductCrudImpl implements ProductCrud{
                     description='$description', 
                     price='$price', 
                     offer='$offer', 
-                    discount='$discount' 
+                    discount='$discount',
+                    quantity = '$quantity'
                 WHERE id=$id";
         $result = mysqli_query($this->conn, $sql);
         return $result;

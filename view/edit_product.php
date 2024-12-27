@@ -18,6 +18,7 @@ if (isset($_GET['id'])):
         $price = isset($row['price']) ? $row['price'] : '';
         $offer = isset($row['offer']) ? $row['offer'] : '';
         $discount = isset($row['discount']) ? $row['discount'] : '';
+        $quantity = isset($row['quantity']) ? $row['quantity']: '';
     ?>
         <div class="admin-product-form-container">
             <h1 class="admin-product-form-header">Edit Product</h1>
@@ -71,6 +72,11 @@ if (isset($_GET['id'])):
                 <div class="admin-product-form-group">
                     <label class="admin-product-form-label">Discount (%):</label>
                     <input type="number" name="discount" id="discount" value="<?php echo $discount; ?>" class="admin-product-form-input" min="0" max="100">
+                </div>
+
+                <div class="admin-product-form-group">
+                <label class="admin-product-form-label">Quantity:</label>
+                <input type="number" name="quantity" id="quantity" value="<?php echo $quantity; ?>" class="admin-product-form-input">
                 </div>
                 
                 <div class="admin-product-form-group admin-product-form-buttons">

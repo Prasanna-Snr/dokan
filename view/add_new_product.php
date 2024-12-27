@@ -52,6 +52,10 @@ $result = $conn->query($sql);
         <label class="admin-product-form-label">Discount (%):</label>
         <input type="number" name="discount" id="discount" class="admin-product-form-input" min="0" max="100">
     </div>
+    <div class="admin-product-form-group">
+        <label class="admin-product-form-label">Quantity:</label>
+        <input type="number" name="quantity" id="quantity" class="admin-product-form-input">
+    </div>
     <div class="admin-product-form-group admin-product-form-buttons">
         <button type="button" class="admin-product-form-button admin-product-form-previous" onclick="window.history.back()">Previous</button>
         <button type="reset" class="admin-product-form-button admin-product-form-clear">Clear</button>

@@ -21,8 +21,8 @@ $result = mysqli_query($conn, $query);
             <p id="heading-category">Dashboard</p>
             <hr class="custom-line">
             <ul>
-                <li><a href="#">Your Order</a></li>
-                <li><a href="#">History</a></li>
+            <li><a href="customer_dashboard.php">Your Order</a></li>
+                <li><a href="order_history.php">History</a></li>
                 <li><a href="#">Order Status</a></li>
                 <li><a href="#">Help</a></li>
                 <li><a href="#">Setting</a></li>
