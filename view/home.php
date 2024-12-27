@@ -8,20 +8,22 @@ $products = $productObj->getAllProduct();
 $offer = new ProductCrudImpl();
 $offerProduct = $offer->getOfferProduct();
 
+$sql = "SELECT * FROM hero_section LIMIT 1"; 
+$res = $conn->query($sql);
+
+$hero = $res->fetch_assoc();
+
 ?>
 
 <!-- hero -->
 <div class="hero-container">
     <div class="hero-content">
         <p id="big-text">
-            Lorem, ipsum dolor sit amet consectetur adipisicing.
+        <?php echo $hero['main_title']; ?>
         </p>
 
         <p id="small-text">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. saepe nemo voluptate, corrupti, ratione nobis
-            quo dignissimos ipsam facilis culpa, ea dolorem. Doloribus ex nisi accusantium non neque repellat in
-            nostrum nihil perspiciatis itaque, a tempore! Nihil, voluptate. Lorem ipsum dolor sit amet consectetur
-            adipisicing elit.
+        <?php echo $hero['description']; ?>
         </p>
 
         <a href="">
@@ -34,7 +36,7 @@ $offerProduct = $offer->getOfferProduct();
 
     </div>
     <div class="hero-image">
-        <img src="/dokan/images/img2.png" alt="">
+    <img src="<?php echo $hero['image_path']; ?>" alt="Hero Image">
     </div>
 </div>
 
@@ -82,7 +84,7 @@ $offerProduct = $offer->getOfferProduct();
 
         </div>
         <div class="big-item">
-            <img src="../images/img7.png" alt="Explore More">
+        <img src="<?php echo $hero['image_path']; ?>" alt="Hero Image">
             <a href="product_list.php" class="bit-imgage-floating">Explore More</a>
         </div>
     </div>

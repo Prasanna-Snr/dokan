@@ -31,6 +31,7 @@ $order = $obj->getTotalOrder();
                 <li><a href="categories_list.php">Categories</a></li>
                 <li><a href="order_list.php">Order</a></li>
                 <li><a href="ad_profile.php">Profile</a></li>
+                <li><a href="hero_section.php">Hero Section</a></li>
                 <li><a href="ad_logout.php">Logout</a></li>
               
             </ul>

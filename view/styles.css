@@ -1824,3 +1824,9 @@ padding-right: 18px;
 .select-order-status{
   border: none;
 }
+
+#action_col{
+  display: flex;
+  justify-content: space-evenly;
+  border: none;
+}

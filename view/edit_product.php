@@ -1,5 +1,4 @@
 <?php
-session_start();
 include "admin_navbar.php";
 include "../model/admin_model.php";
 
