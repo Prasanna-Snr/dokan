@@ -1782,7 +1782,7 @@ td {
   padding-right: 70px;
   display: flex;
   flex-direction: column;
-  gap: 50px;
+  
 }
 
 .c-img-container {
@@ -1829,4 +1829,54 @@ padding-right: 18px;
   display: flex;
   justify-content: space-evenly;
   border: none;
+}
+
+/* -------------------------------order status page------------------------ */
+.status-pending {
+  color: orange;
+  font-weight: bold;
+}
+
+.status-transporting {
+  color: blue;
+  font-weight: bold;
+}
+
+.status-canceled {
+  color: red;
+  font-weight: bold;
+}
+
+.status-completed {
+  color: green;
+  font-weight: bold;
+}
+
+.status-unknown {
+  color: gray;
+  font-weight: bold;
+}
+
+.order-status-table {
+  margin: 20px;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.order-status-table th,
+.order-status-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.order-status-table th {
+  background-color: #f2f2f2;
+}
+
+.order-status-form {
+  margin: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }

@@ -52,4 +52,17 @@ if(isset($_POST['make-order'])){
     header("Location: ../view/customer_dashboard.php");
 }
 
+
+if (isset($_POST['status'])) {
+    $orderId = $_POST['order_id'];
+    $status = $_POST['status'];
+
+    $updateSql = "UPDATE tbl_order SET status = '$status' WHERE id = $orderId";
+    mysqli_query($conn, $updateSql);
+
+    header("Location: ../view/order_list.php");
+    exit;
+}
+
+
 ?>

@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <p id="login-txt">Admin Sign Up Page</p>
+    <p id="login-txt">Admin Sign Up</p>
     <div class="login-container">
         <div class="login-box">
             <form action="../controller/admin_controller.php" method="POST">	

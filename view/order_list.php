@@ -7,10 +7,11 @@ if (!isset($_SESSION['admin_login'])) {
 }
 
 // Update the SQL query to include join
-$sql = "SELECT o.id, c.fullname AS customer_name, p.name AS product_name, o.quantity, o.order_method, o.region, o.city, o.street, o.phone, o.order_at
+$sql = "SELECT o.id, c.fullname AS customer_name, p.name AS product_name, o.quantity, o.order_method, o.region, o.city, o.street, o.phone, o.status, o.order_at
         FROM tbl_order o
         JOIN tbl_customer c ON o.customer_id = c.id
         JOIN tbl_product p ON o.product_id = p.id";
+
 $res = mysqli_query($conn, $sql);
 
 ?>
@@ -57,8 +58,8 @@ $res = mysqli_query($conn, $sql);
                         <th>City</th>
                         <th>Street</th>
                         <th>Phone</th>
-                        <th>Order Time</th>
-                        <th>Order <br>Status</th>
+                        <th>Status</th>
+                        <th>Change <br>Status</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -73,14 +74,18 @@ $res = mysqli_query($conn, $sql);
                         <td><?php echo $row['city']; ?></td>
                         <td><?php echo $row['street']; ?></td>
                         <td><?php echo $row['phone']; ?></td>
-                        <td><?php echo $row['order_at']; ?></td>
+                        <td><?php echo $row['status']; ?></td>
                         <td>
-                            <select name="" id="" class="select-order-status">
-                                <option value="">Ordered</option>
-                                <option value="">Dispatched</option>
-                                <option value="">Delivered</option>
-                                <option value="">Completed</option>
-                            </select>
+                            <form action="../controller/order_controller.php" method="POST">
+                                <input type="hidden" name="order_id" value="<?php echo $row['id']; ?>">
+                                <select name="status" class="select-order-status">
+                                    <option value="pending" <?php echo $row['status'] == 'pending' ? 'selected' : ''; ?>>Pending</option>
+                                    <option value="transporting" <?php echo $row['status'] == 'transporting' ? 'selected' : ''; ?>>Transporting</option>
+                                    <option value="delete" <?php echo $row['status'] == 'delete' ? 'selected' : ''; ?>>Delete</option>
+                                    <option value="completed" <?php echo $row['status'] == 'completed' ? 'selected' : ''; ?>>Completed</option>
+                                </select>
+                                <button type="submit" name="submit-status">Update</button>
+                            </form>
                         </td>
                     </tr>
                     <?php endwhile; ?>

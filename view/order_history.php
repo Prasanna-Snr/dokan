@@ -23,7 +23,7 @@ $result = mysqli_query($conn, $query);
             <ul>
                 <li><a href="customer_dashboard.php">Your Order</a></li>
                 <li><a href="order_history.php">History</a></li>
-                <li><a href="#">Order Status</a></li>
+                <li><a href="order_status.php">Order Status</a></li>
                 <li><a href="#">Help</a></li>
                 <li><a href="#">Setting</a></li>
                 <li><a href="../view/logout.php">Logout</a></li>
